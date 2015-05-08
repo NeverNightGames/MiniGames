@@ -32,54 +32,56 @@ public class TurretTEST : MonoBehaviour
     void Update()
     {
 
-
-        // Look at
-        Vector3 mousePosition = Input.mousePosition;
-
-        mousePosition.z = 32;
-
-        Vector3 lookPos = Camera.main.ScreenToWorldPoint(mousePosition);
-
-        lookPos = lookPos - transform.position;
-
-        float angle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        //
-
-
-
-        if (canFire == true)
+        if (Clicked == true)
         {
+            // Look at
+            Vector3 mousePosition = Input.mousePosition;
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            mousePosition.z = 32;
+
+            Vector3 lookPos = Camera.main.ScreenToWorldPoint(mousePosition);
+
+            lookPos = lookPos - transform.position;
+
+            float angle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //
+
+
+
+            if (canFire == true)
             {
-                //print("G");
 
-                //bulletOBJ.transform.Translate(bulletSpeed, 0, 0 * Time.deltaTime);
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    //print("G");
 
-                Instantiate(bulletOBJ, FirePos1.transform.position, Quaternion.identity);
+                    //bulletOBJ.transform.Translate(bulletSpeed, 0, 0 * Time.deltaTime);
 
-                Instantiate(bulletOBJ, FirePos2.transform.position, Quaternion.identity);
+                    Instantiate(bulletOBJ, FirePos1.transform.position, Quaternion.identity);
 
-                Fired = true;
+                    Instantiate(bulletOBJ, FirePos2.transform.position, Quaternion.identity);
+
+                    Fired = true;
 
 
 
-                //bulletOBJ.transform.rotation = this.gameObject.transform.rotation;
+                    //bulletOBJ.transform.rotation = this.gameObject.transform.rotation;
 
+                }
             }
-        }
 
-        if (Fired == true)
-        {
-            timer += Time.fixedDeltaTime;
-
-            if (timer >= 0.1f)
+            if (Fired == true)
             {
-                Fired = false;
+                timer += Time.fixedDeltaTime;
 
-                timer = 0;
+                if (timer >= 0.1f)
+                {
+                    Fired = false;
+
+                    timer = 0;
+                }
             }
         }
 
