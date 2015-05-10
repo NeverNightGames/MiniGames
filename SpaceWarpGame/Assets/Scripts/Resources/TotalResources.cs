@@ -7,9 +7,10 @@ public class TotalResources : MonoBehaviour
 
     public GameObject BattleShip1;
 
-    public GameObject BattleShip2;
 
-    public GameObject BattleShip3;
+    //public GameObject BattleShip2;
+
+    //public GameObject BattleShip3;
 
 
     public Text TotalFoodText;
@@ -32,9 +33,9 @@ public class TotalResources : MonoBehaviour
     {
         BattleShip1 = GameObject.Find("Battle Ship 1");
 
-        BattleShip2 = GameObject.Find("Battle Ship 2");
+       // BattleShip2 = GameObject.Find("Battle Ship 2");
 
-        BattleShip3 = GameObject.Find("Battle Ship 3");
+        //BattleShip3 = GameObject.Find("Battle Ship 3");
 
 
     }
@@ -45,12 +46,12 @@ public class TotalResources : MonoBehaviour
         //
         float BS1Food = BattleShip1.GetComponent<BattleShipTEST>().BSFood;
 
-        float BS2Food = BattleShip2.GetComponent<BattleShipTEST>().BSFood;
+        //float BS2Food = BattleShip2.GetComponent<BattleShipTEST>().BSFood;
 
-        float BS3Food = BattleShip3.GetComponent<BattleShipTEST>().BSFood;
+        //float BS3Food = BattleShip3.GetComponent<BattleShipTEST>().BSFood;
 
 
-        float totalFood = BS1Food + BS2Food + BS3Food;
+        float totalFood = BS1Food;// +BS2Food + BS3Food;
 
         TotalFoodText.text = "Food " + totalFood;
         //
@@ -58,12 +59,12 @@ public class TotalResources : MonoBehaviour
         //
         float BS1Energy = BattleShip1.GetComponent<BattleShipTEST>().BSEnergy;
 
-        float BS2Energy = BattleShip2.GetComponent<BattleShipTEST>().BSEnergy;
+       // float BS2Energy = BattleShip2.GetComponent<BattleShipTEST>().BSEnergy;
 
-        float BS3Energy = BattleShip3.GetComponent<BattleShipTEST>().BSEnergy;
+        //float BS3Energy = BattleShip3.GetComponent<BattleShipTEST>().BSEnergy;
 
 
-        float totalEnergy = BS1Energy + BS2Energy + BS3Energy;
+        float totalEnergy = BS1Energy;// +BS2Energy + BS3Energy;
 
         TotalEnergyText.text = "Energy " + totalEnergy;
         //
@@ -71,12 +72,12 @@ public class TotalResources : MonoBehaviour
         //
         float BS1Ammo = BattleShip1.GetComponent<BattleShipTEST>().BSAmmo;
 
-        float BS2Ammo = BattleShip2.GetComponent<BattleShipTEST>().BSAmmo;
+       // float BS2Ammo = BattleShip2.GetComponent<BattleShipTEST>().BSAmmo;
 
-        float BS3Ammo = BattleShip3.GetComponent<BattleShipTEST>().BSAmmo;
+       // float BS3Ammo = BattleShip3.GetComponent<BattleShipTEST>().BSAmmo;
 
 
-        float totalAmmo = BS1Ammo + BS2Ammo + BS3Ammo;
+        float totalAmmo = BS1Ammo;// +BS2Ammo + BS3Ammo;
 
         TotalAmmoText.text = "Ammo " + totalAmmo;
         //

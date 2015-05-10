@@ -8,9 +8,11 @@ public class TurretTEST : MonoBehaviour
 
     public GameObject bulletOBJ;
 
+
     public GameObject FirePos1;
 
-    public GameObject FirePos2;
+   // public GameObject FirePos2;
+
 
     public bool Fired;
 
@@ -59,9 +61,15 @@ public class TurretTEST : MonoBehaviour
 
                     //bulletOBJ.transform.Translate(bulletSpeed, 0, 0 * Time.deltaTime);
 
-                    Instantiate(bulletOBJ, FirePos1.transform.position, Quaternion.identity);
+                    Instantiate(bulletOBJ, FirePos1.transform.position, FirePos1.transform.rotation);
 
-                    Instantiate(bulletOBJ, FirePos2.transform.position, Quaternion.identity);
+                    bulletOBJ.transform.LookAt(mousePosition);
+
+                   // bulletOBJ.GetComponent<Rigidbody2D>().AddForce(bulletOBJ.transform.forward * 200);
+
+                    
+
+                    //Instantiate(bulletOBJ, FirePos2.transform.position, Quaternion.identity);
 
                     Fired = true;
 

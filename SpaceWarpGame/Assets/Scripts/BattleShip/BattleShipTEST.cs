@@ -2,21 +2,42 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class BattleShipTEST : MonoBehaviour {
+public class BattleShipTEST : MonoBehaviour
+{
 
     public Canvas battleShipCanvas;
 
 
-    public float BSFood;
+    public int foodLevel;
 
-    public float BSAmmo;
+    public int ammoLevel;
 
-    public float BSEnergy;
+    public int energyLevel;
+
+    public int weaponsLevel;
+
+
+    public int BSEnergy;
+
+    public int BSFood;
+
+    public int BSAmmo;
 
     public int BSWeapons;
 
 
     public Slider healthBar;
+
+
+    public Text energyLevelText;
+
+    public Text foodLevelText;
+
+    public Text ammoLevelText;
+
+    public Text weaponsLevelText;
+
+
 
     public Text energyText;
 
@@ -27,19 +48,22 @@ public class BattleShipTEST : MonoBehaviour {
     public Text weaponsText;
 
 
+
+
+
     private bool clickedOn;
 
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
         battleShipCanvas.gameObject.SetActive(false);
 
         healthBar.fillRect.GetComponent<Image>().color = Color.green;
 
-       // healthBar.fillRect.GetComponent<Image>().color = Color.red;
-	
-	}
+        // healthBar.fillRect.GetComponent<Image>().color = Color.red;
+
+    }
 
 
     void FixedUpdate()
@@ -50,18 +74,29 @@ public class BattleShipTEST : MonoBehaviour {
         //energyText.text = "Energy " + BSEnergy; //Mathf.Round(BSEnergy);
     }
 
-	// Update is called once per frame
-	void Update () 
+    // Update is called once per frame
+    void Update()
     {
-        energyText.text = "Energy " + BSEnergy; //Mathf.Round(BSEnergy);
+        energyText.text = "" + BSEnergy; //Mathf.Round(BSEnergy);
 
-        foodText.text = "Food " + BSFood;
+        foodText.text = "" + BSFood;
 
-        ammoText.text = "Ammo " + BSAmmo;
+        ammoText.text = "" + BSAmmo;
 
-        weaponsText.text = "Weapons " + BSWeapons;
-	
-	}
+        weaponsText.text = "" + BSWeapons;
+
+
+        energyLevelText.text = "Energy LV: " + energyLevel;
+
+        foodLevelText.text = "Food LV: " + foodLevel;
+
+        ammoLevelText.text = "Ammo LV: " + ammoLevel;
+
+        weaponsLevelText.text = "Weapons LV: " + weaponsLevel; 
+
+      
+
+    }
 
     void OnMouseDown()
     {
@@ -86,12 +121,39 @@ public class BattleShipTEST : MonoBehaviour {
     {
         //print("Pressed");
 
-        BSEnergy += 5.0f;
+       // BSEnergy += 5.0f;
+
+        energyLevel += 1;
     }
+
+    public void FoodUpgrade()
+    {
+        //print("Pressed");
+
+       // BSFood += 5.0f;
+
+        foodLevel += 1;
+    }
+
+    public void AmmoUpgrade()
+    {
+        //BSAmmo += 5.0f;
+
+        ammoLevel += 1;
+    }
+
+    public void WeaponsUpgrade()
+    {
+        weaponsLevel += 1;
+
+        print("Weapons");
+    }
+
+
 
     void OnCollisionEnter2D(Collision2D col)
     {
-       // Debug.Log("HELLO");
+        // Debug.Log("HELLO");
     }
-   
+
 }

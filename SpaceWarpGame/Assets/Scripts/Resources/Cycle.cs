@@ -13,11 +13,15 @@ public class Cycle : MonoBehaviour
 
     public Text cycleText;
 
+    private BattleShipTEST Ship1;
+
 
 	// Use this for initialization
 	void Start () 
     {
         //print("TEST");
+
+        Ship1 = GameObject.Find("Battle Ship 1").GetComponentInParent<BattleShipTEST>();
 	
 	}
 	
@@ -26,8 +30,20 @@ public class Cycle : MonoBehaviour
     {
         timer += Time.fixedDeltaTime;
 
+
+
+        //Cycle
         if (timer >= cycleTime)
         {
+
+            Ship1.BSEnergy += 20;
+
+            Ship1.BSFood += 20;
+
+            Ship1.BSAmmo += 20;
+
+            
+
             cycle += 1;
 
             timer = 0;
