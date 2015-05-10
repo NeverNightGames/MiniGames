@@ -14,19 +14,22 @@ public class TurretTEST : MonoBehaviour
    // public GameObject FirePos2;
 
 
-    public bool Fired;
+    //public bool Fired;
 
-    public float timer = 0f;
+    //public float timer = 0f;
 
 
     private bool Clicked = false;
 
     private bool canFire;
 
+    private MotherShipTest motherShip;
+
 
     // Use this for initialization
     void Start()
     {
+        motherShip = GameObject.Find("MotherShip").GetComponent<MotherShipTest>();
 
     }
 
@@ -55,42 +58,33 @@ public class TurretTEST : MonoBehaviour
             if (canFire == true)
             {
 
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+                if (Input.GetKey(KeyCode.Mouse0))
                 {
                     //print("G");
 
-                    //bulletOBJ.transform.Translate(bulletSpeed, 0, 0 * Time.deltaTime);
+                    if (motherShip.MSAmmo >= 0)
+                    {
+                        motherShip.MSAmmo--;
 
-                    Instantiate(bulletOBJ, FirePos1.transform.position, FirePos1.transform.rotation);
+                        Instantiate(bulletOBJ, FirePos1.transform.position, FirePos1.transform.rotation);
 
-                    bulletOBJ.transform.LookAt(mousePosition);
-
-                   // bulletOBJ.GetComponent<Rigidbody2D>().AddForce(bulletOBJ.transform.forward * 200);
-
-                    
-
-                    //Instantiate(bulletOBJ, FirePos2.transform.position, Quaternion.identity);
-
-                    Fired = true;
-
-
-
-                    //bulletOBJ.transform.rotation = this.gameObject.transform.rotation;
+                        bulletOBJ.transform.LookAt(mousePosition);
+                    }
 
                 }
             }
 
-            if (Fired == true)
-            {
-                timer += Time.fixedDeltaTime;
+            //if (Fired == true)
+            //{
+            //    timer += Time.fixedDeltaTime;
 
-                if (timer >= 0.1f)
-                {
-                    Fired = false;
+            //    if (timer >= 0.1f)
+            //    {
+            //        Fired = false;
 
-                    timer = 0;
-                }
-            }
+            //        timer = 0;
+            //    }
+            //}
         }
 
 
@@ -105,7 +99,7 @@ public class TurretTEST : MonoBehaviour
 
     void OnMouseDown()
     {
-        //print("CICKED");
+        print("CICKED");
 
         if (Clicked == false)
         {

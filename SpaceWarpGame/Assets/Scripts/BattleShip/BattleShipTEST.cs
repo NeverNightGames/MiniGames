@@ -8,11 +8,11 @@ public class BattleShipTEST : MonoBehaviour
     public Canvas battleShipCanvas;
 
 
+    public int energyLevel;
+
     public int foodLevel;
 
     public int ammoLevel;
-
-    public int energyLevel;
 
     public int weaponsLevel;
 

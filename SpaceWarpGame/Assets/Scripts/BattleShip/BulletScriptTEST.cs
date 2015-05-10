@@ -40,7 +40,7 @@ public class BulletScriptTEST : MonoBehaviour
 
             timer = 0;
 
-           // print("DEAD");
+           //  print("DEAD");
         }
 
 
@@ -52,10 +52,18 @@ public class BulletScriptTEST : MonoBehaviour
         //print("HELLO");
         if (col.gameObject.tag == "Border")
         {
-            print("Hello");
+           // print("Hello");
 
             Destroy(this.gameObject);
         }
+
+        if (col.gameObject.tag == "Enemy")
+        {
+            print("Bullet");
+        }
+
+
+
     }
 
 }
