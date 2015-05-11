@@ -48,7 +48,13 @@ public class BattleShipTEST : MonoBehaviour
     public Text weaponsText;
 
 
+    public bool updatedEnergy;
 
+    public bool updatedFood;
+
+    public bool updatedAmmo;
+
+    public bool updatedWeapons;
 
 
     private bool clickedOn;
@@ -121,23 +127,33 @@ public class BattleShipTEST : MonoBehaviour
     {
         //print("Pressed");
 
-       // BSEnergy += 5.0f;
+       // BSEnergy = 15;
+
+        updatedEnergy = true;
+
+        BSEnergy -= 250;
 
         energyLevel += 1;
+
+       
     }
 
     public void FoodUpgrade()
     {
         //print("Pressed");
 
-       // BSFood += 5.0f;
+      //  BSFood += 15;
+
+        updatedFood = true;
 
         foodLevel += 1;
     }
 
     public void AmmoUpgrade()
     {
-        //BSAmmo += 5.0f;
+       // BSAmmo += 15;
+
+        updatedAmmo = true;
 
         ammoLevel += 1;
     }

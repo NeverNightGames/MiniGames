@@ -13,22 +13,34 @@ public class Cycle : MonoBehaviour
 
     public Text cycleText;
 
+
+    private MotherShipTest MSScript;
+
     private BattleShipTEST Ship1;
 
+    private TotalResources totResources;
 
-	// Use this for initialization
-	void Start () 
+
+
+
+    // Use this for initialization
+    void Start()
     {
         //print("TEST");
 
-        Ship1 = GameObject.Find("Battle Ship 1").GetComponentInParent<BattleShipTEST>();
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
+        //MSScript = GameObject.Find("MotherShip").GetComponent<MotherShipTest>();
+
+        //Ship1 = GameObject.Find("Battle Ship 1").GetComponentInParent<BattleShipTEST>();
+
+        totResources = GameObject.Find("Game Master").GetComponentInParent<TotalResources>();
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         timer += Time.fixedDeltaTime;
+
 
 
 
@@ -36,26 +48,32 @@ public class Cycle : MonoBehaviour
         if (timer >= cycleTime)
         {
 
-            Ship1.BSEnergy += 20;
+            totResources.BattleShip1.BSEnergy -= 25;
 
-            Ship1.BSFood += 20;
+            if (totResources.BattleShip1.updatedEnergy == false)
+            {
+                totResources.BattleShip1.BSEnergy += 20;
+            }
+            else if (totResources.BattleShip1.updatedEnergy == true)
+            {
+                totResources.BattleShip1.BSEnergy += 30;
+            }
 
-            Ship1.BSAmmo += 20;
 
-            
 
             cycle += 1;
 
             timer = 0;
+
         }
 
         cycleText.text = "Cycle " + cycle;
 
-        
-
-        
 
 
-	
-	}
+
+
+
+
+    }
 }

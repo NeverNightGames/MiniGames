@@ -12,6 +12,8 @@ public class BulletScriptTEST : MonoBehaviour
 
     float timer = 0;
 
+    float distance;
+
     GameObject bulletparent;
 
     // Use this for initialization
@@ -28,7 +30,15 @@ public class BulletScriptTEST : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(bulletSpeed, 0, 0 * Time.deltaTime);
+
+
+        distance = Random.Range(8,16);
+
+        Vector2 pos = new Vector2(distance,0);
+
+        //transform.position = (pos);
+
+        transform.Translate(distance, 0, 0);
 
         //  this.gameObject.GetComponent<Rigidbody2D>().AddForce(this.gameObject.transform.forward * bulletSpeed);
 
