@@ -8,13 +8,13 @@ public class BattleShipTEST : MonoBehaviour
     public Canvas battleShipCanvas;
 
 
-    public int energyLevel;
+    //public int energyLevel;
 
-    public int foodLevel;
+    //public int foodLevel;
 
-    public int ammoLevel;
+    //public int ammoLevel;
 
-    public int weaponsLevel;
+    //public int weaponsLevel;
 
 
     public int BSEnergy;
@@ -26,17 +26,19 @@ public class BattleShipTEST : MonoBehaviour
     public int BSWeapons;
 
 
+    // public int upgradeCost = 250;
+
+    public bool updatedEnergy;
+
+    public bool updatedFood;
+
+    public bool updatedAmmo;
+
+    public bool updatedWeapons;
+
+
+
     public Slider healthBar;
-
-
-    public Text energyLevelText;
-
-    public Text foodLevelText;
-
-    public Text ammoLevelText;
-
-    public Text weaponsLevelText;
-
 
 
     public Text energyText;
@@ -47,14 +49,6 @@ public class BattleShipTEST : MonoBehaviour
 
     public Text weaponsText;
 
-
-    public bool updatedEnergy;
-
-    public bool updatedFood;
-
-    public bool updatedAmmo;
-
-    public bool updatedWeapons;
 
 
     private bool clickedOn;
@@ -92,15 +86,15 @@ public class BattleShipTEST : MonoBehaviour
         weaponsText.text = "" + BSWeapons;
 
 
-        energyLevelText.text = "Energy LV: " + energyLevel;
+        //energyLevelText.text = "Energy LV: " + energyLevel;
 
-        foodLevelText.text = "Food LV: " + foodLevel;
+        //foodLevelText.text = "Food LV: " + foodLevel;
 
-        ammoLevelText.text = "Ammo LV: " + ammoLevel;
+        //ammoLevelText.text = "Ammo LV: " + ammoLevel;
 
-        weaponsLevelText.text = "Weapons LV: " + weaponsLevel; 
+        //weaponsLevelText.text = "Weapons LV: " + weaponsLevel; 
 
-      
+
 
     }
 
@@ -125,42 +119,38 @@ public class BattleShipTEST : MonoBehaviour
 
     public void EnergyUpgrade()
     {
-        //print("Pressed");
 
-       // BSEnergy = 15;
 
         updatedEnergy = true;
 
-        BSEnergy -= 250;
 
-        energyLevel += 1;
 
-       
+
     }
 
     public void FoodUpgrade()
     {
-        //print("Pressed");
 
-      //  BSFood += 15;
 
         updatedFood = true;
 
-        foodLevel += 1;
+
+
+
     }
 
     public void AmmoUpgrade()
     {
-       // BSAmmo += 15;
+        // BSAmmo += 15;
 
         updatedAmmo = true;
 
-        ammoLevel += 1;
+
     }
 
     public void WeaponsUpgrade()
     {
-        weaponsLevel += 1;
+
 
         print("Weapons");
     }
