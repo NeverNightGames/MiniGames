@@ -11,6 +11,7 @@ public class EnemyScriptTEST : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        transform.Translate(0.2f,0, 0);
 
 	
 	}

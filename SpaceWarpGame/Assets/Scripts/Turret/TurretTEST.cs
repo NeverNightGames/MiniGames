@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class TurretTEST : MonoBehaviour
@@ -8,28 +9,38 @@ public class TurretTEST : MonoBehaviour
 
     public GameObject bulletOBJ;
 
-
     public GameObject FirePos1;
 
-   // public GameObject FirePos2;
+    public GameObject FirePos2;
 
+    public float shootTime;
 
     //public bool Fired;
 
-    //public float timer = 0f;
+    public float timer = 0f;
 
 
     private bool Clicked = false;
 
     private bool canFire;
 
+
+    public bool canFireT1;
+
+    public bool canFireT2;
+
+
     private MotherShipTest motherShip;
+
+  //  private TotalResources totResource;
 
 
     // Use this for initialization
     void Start()
     {
         motherShip = GameObject.Find("MotherShip").GetComponent<MotherShipTest>();
+
+       // totResource = GameObject.Find("Game Master").GetComponent<TotalResources>();
 
     }
 
@@ -62,44 +73,73 @@ public class TurretTEST : MonoBehaviour
                 {
                     //print("G");
 
-                    if (motherShip.MSAmmo >= 0)
+                    if(canFireT1 == true)
                     {
-                        motherShip.MSAmmo--;
 
-                        Instantiate(bulletOBJ, FirePos1.transform.position, FirePos1.transform.rotation);
+                        if (motherShip.MSAmmo >= 1)
+                        {
+                            timer += Time.fixedDeltaTime;
 
-                        bulletOBJ.transform.LookAt(mousePosition);
+                            if (timer >= shootTime)
+                            {
+                                motherShip.MSAmmo--;
+
+                                Instantiate(bulletOBJ, FirePos1.transform.position, FirePos1.transform.rotation);
+
+                                bulletOBJ.transform.LookAt(mousePosition);
+
+                                //timer = 0;
+                            }
+
+                            
+                        }
+
                     }
+
+                    if (canFireT2 == true)
+                    {
+                        // if (timer >= shootTime)
+                        // {
+                        if (motherShip.MSAmmo >= 1)
+                        {
+
+                            motherShip.MSAmmo--;
+
+                            print("FIRING");
+
+
+                            Instantiate(bulletOBJ, FirePos2.transform.position, FirePos2.transform.rotation);
+
+                            bulletOBJ.transform.LookAt(mousePosition);
+                        }
+
+                        //timer = 0;
+                        // }
+                    }
+                    //else if (motherShip.MSAmmo <= 0)
+                    //{
+                    //    motherShip.MSAmmo = 0;
+                    //}
 
                 }
             }
-
-            //if (Fired == true)
-            //{
-            //    timer += Time.fixedDeltaTime;
-
-            //    if (timer >= 0.1f)
-            //    {
-            //        Fired = false;
-
-            //        timer = 0;
-            //    }
-            //}
         }
-
-
-
-
-
-
-        //bulletOBJ.transform.Translate(bulletSpeed, 0, 0 * Time.deltaTime);
-
-
     }
+
+            
 
     void OnMouseDown()
     {
-        print("CICKED");
+        if (gameObject.transform.name == "MS Gun 1")
+        {
+            //print("CICKED");
+
+            canFireT1 = true;
+        }
+        else if (gameObject.transform.name == "MS Gun 2")
+        {
+            canFireT2 = true;
+        }
 
         if (Clicked == false)
         {

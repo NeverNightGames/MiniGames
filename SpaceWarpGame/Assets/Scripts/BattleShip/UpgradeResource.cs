@@ -5,7 +5,7 @@ using System.Collections;
 public class UpgradeResource : MonoBehaviour
 {
 
-    public int upgradeCost1 = 250;
+    public int upgradeCost1;
 
     public int upgradeCost2 = 500;
 
@@ -62,6 +62,9 @@ public class UpgradeResource : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        upgradeCost1 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
+
         // Cost text
         switch (energyLevel)
         {

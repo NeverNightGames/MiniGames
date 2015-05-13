@@ -4,15 +4,25 @@ using System.Collections;
 public class CameraMoveTEST : MonoBehaviour
 {
 
-    public bool canZoomOut = true;
 
-    public bool canZoomIn = true;
+    public float speed = 3f;
 
+
+    bool canZoomOut = true;
+
+    bool canZoomIn = true;
+
+    Vector3 currentCamPos;
+
+    
+
+         
 
     // Use this for initialization
     void Start()
     {
-
+        currentCamPos = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y,this.gameObject.transform.position.z);
+        
 
     }
 
@@ -21,7 +31,7 @@ public class CameraMoveTEST : MonoBehaviour
     {
         float SW = Input.GetAxis("Mouse ScrollWheel");
 
-        Vector2 mousPos = new Vector2();
+       // Vector2 mousPos = new Vector2();
 
         if (canZoomIn == true)
         {
@@ -29,7 +39,7 @@ public class CameraMoveTEST : MonoBehaviour
             {
                 //print("Forward");
 
-                Camera.main.orthographicSize--;
+                Camera.main.orthographicSize -= 3f;
             }
         }
 
@@ -40,7 +50,7 @@ public class CameraMoveTEST : MonoBehaviour
             {
                 //print("Back");
 
-                Camera.main.orthographicSize++;
+                Camera.main.orthographicSize += 3f;
             }
         }
 
@@ -68,10 +78,14 @@ public class CameraMoveTEST : MonoBehaviour
         {
             //print("PRESS");
 
-            float speed = 3f;
+          
             transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * speed, 0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speed);
 
-           // Camera.main.transform.Translate(mousPos);
+            // Camera.main.transform.Translate(mousPos);
+        }
+        else
+        {
+            this.gameObject.transform.position = currentCamPos;
         }
 
 

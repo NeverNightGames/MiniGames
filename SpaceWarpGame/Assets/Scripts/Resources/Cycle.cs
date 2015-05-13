@@ -48,6 +48,8 @@ public class Cycle : MonoBehaviour
         if (timer >= cycleTime)
         {
 
+            // Gave 
+
             totResources.BattleShip1.BSEnergy -= 25;
 
             if (totResources.BattleShip1.updatedEnergy == false)
