@@ -7,11 +7,11 @@ public class UpgradeResource : MonoBehaviour
 
     public int upgradeCost1;
 
-    public int upgradeCost2 = 500;
+    public int upgradeCost2;
 
-    public int upgradeCost3 = 750;
+    public int upgradeCost3;
 
-    public int upgradeCost4 = 1000;
+    public int upgradeCost4;
 
 
     public int energyLevel;
@@ -64,6 +64,14 @@ public class UpgradeResource : MonoBehaviour
     {
 
         upgradeCost1 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
+
+        upgradeCost2 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
+
+        upgradeCost3 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
+
+        upgradeCost4 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
+
+
 
         // Cost text
         switch (energyLevel)

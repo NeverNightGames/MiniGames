@@ -7,6 +7,8 @@ public class CameraMoveTEST : MonoBehaviour
 
     public float speed = 3f;
 
+    public float sideSpeed = 3f;
+
 
     bool canZoomOut = true;
 
@@ -14,16 +16,23 @@ public class CameraMoveTEST : MonoBehaviour
 
     Vector3 currentCamPos;
 
-    
 
-         
+    public int maxRight;
+
+    public int maxLeft;
+
+    public int maxUp;
+
+    public int maxDown;
+   
+   
 
     // Use this for initialization
     void Start()
     {
         currentCamPos = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y,this.gameObject.transform.position.z);
-        
 
+        
     }
 
     // Update is called once per frame
@@ -78,14 +87,53 @@ public class CameraMoveTEST : MonoBehaviour
         {
             //print("PRESS");
 
-          
-            transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * speed, 0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speed);
+
+            transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * sideSpeed, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speed, 0f);
 
             // Camera.main.transform.Translate(mousPos);
         }
         else
         {
             this.gameObject.transform.position = currentCamPos;
+        }
+
+
+
+
+        if (this.gameObject.transform.position.x >= -maxRight)
+        {
+            //print("Stop");
+
+            sideSpeed = 0;
+
+            
+        }
+        else if (this.gameObject.transform.position.x <= -maxLeft)
+        {
+            sideSpeed = 0;
+
+           
+        }
+        else
+        {
+            sideSpeed = 75;
+        }
+        
+        if (this.gameObject.transform.position.y >= maxUp)
+        {
+            print("UP");
+
+            speed = 0;
+        }
+        else if (this.gameObject.transform.position.y <= -maxDown)
+        {
+            print("DOWN");
+
+            speed = 0;
+        }
+        else
+        {
+            speed = 75;
         }
 
 

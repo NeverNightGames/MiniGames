@@ -21,11 +21,11 @@ public class TotalResources : MonoBehaviour
     public Text totalText;
 
 
-    //public int totalEnergy;
+    public int totalEnergy;
 
-    //public int totalFood;
+    public int totalFood;
 
-    //public int totalAmmo;
+    public int totalAmmo;
 
 
     // private GameObject BattleShip2;
@@ -61,7 +61,7 @@ public class TotalResources : MonoBehaviour
         //float BS3Energy = BattleShip3.GetComponent<BattleShipTEST>().BSEnergy;
 
 
-        int totalEnergy = MSEnergy + BS1Energy;// +BS2Energy + BS3Energy;
+        totalEnergy = MSEnergy + BS1Energy;// +BS2Energy + BS3Energy;
 
         TotalEnergyText.text = "Energy " + totalEnergy;
         //
@@ -77,7 +77,7 @@ public class TotalResources : MonoBehaviour
         //float BS3Food = BattleShip3.GetComponent<BattleShipTEST>().BSFood;
 
 
-       int totalFood = MSFood + BS1Food;// +BS2Food + BS3Food;
+       totalFood = MSFood + BS1Food;// +BS2Food + BS3Food;
 
         TotalFoodText.text = "Food " + totalFood;
         //
@@ -94,7 +94,7 @@ public class TotalResources : MonoBehaviour
        // float BS3Ammo = BattleShip3.GetComponent<BattleShipTEST>().BSAmmo;
 
 
-       int totalAmmo = MSAmmo + BS1Ammo;// +BS2Ammo + BS3Ammo;
+        totalAmmo = MSAmmo + BS1Ammo;// +BS2Ammo + BS3Ammo;
 
         TotalAmmoText.text = "Ammo " + totalAmmo;
         //

@@ -29,18 +29,23 @@ public class TurretTEST : MonoBehaviour
 
     public bool canFireT2;
 
+    public Texture2D cursorTexture;
+    public Texture2D cursorTexture1;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
 
-    private MotherShipTest motherShip;
 
-  //  private TotalResources totResource;
+    //private MotherShipTest motherShip;
+
+    private TotalResources totResource;
 
 
     // Use this for initialization
     void Start()
     {
-        motherShip = GameObject.Find("MotherShip").GetComponent<MotherShipTest>();
+       // motherShip = GameObject.Find("MotherShip").GetComponent<MotherShipTest>();
 
-       // totResource = GameObject.Find("Game Master").GetComponent<TotalResources>();
+       totResource = GameObject.Find("Game Master").GetComponent<TotalResources>();
 
     }
 
@@ -68,6 +73,7 @@ public class TurretTEST : MonoBehaviour
 
             if (canFire == true)
             {
+                Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
 
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
@@ -76,13 +82,13 @@ public class TurretTEST : MonoBehaviour
                     if(canFireT1 == true)
                     {
 
-                        if (motherShip.MSAmmo >= 1)
+                        if(totResource.totalAmmo >= 1)
                         {
                             timer += Time.fixedDeltaTime;
 
                             if (timer >= shootTime)
                             {
-                                motherShip.MSAmmo--;
+                                totResource.totalAmmo--;
 
                                 Instantiate(bulletOBJ, FirePos1.transform.position, FirePos1.transform.rotation);
 
@@ -100,13 +106,12 @@ public class TurretTEST : MonoBehaviour
                     {
                         // if (timer >= shootTime)
                         // {
-                        if (motherShip.MSAmmo >= 1)
+                        if (totResource.totalAmmo >= 1)
                         {
 
-                            motherShip.MSAmmo--;
+                            totResource.totalAmmo--;
 
-                            print("FIRING");
-
+                            //print("FIRING");
 
                             Instantiate(bulletOBJ, FirePos2.transform.position, FirePos2.transform.rotation);
 
@@ -126,6 +131,14 @@ public class TurretTEST : MonoBehaviour
         }
     }
 
+    void OnMouseEnter()
+    {
+        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+    }
+    void OnMouseExit()
+    {
+        Cursor.SetCursor(null, Vector2.zero, cursorMode);
+    }
             
 
     void OnMouseDown()
@@ -143,6 +156,8 @@ public class TurretTEST : MonoBehaviour
 
         if (Clicked == false)
         {
+            //Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
+
             canFire = true;
 
             Clicked = true;
@@ -150,6 +165,8 @@ public class TurretTEST : MonoBehaviour
         else if (Clicked == true)
         {
             canFire = false;
+
+            Cursor.SetCursor(null, Vector2.zero, cursorMode);
 
             Clicked = false;
         }

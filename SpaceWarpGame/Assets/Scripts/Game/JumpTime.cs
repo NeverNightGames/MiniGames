@@ -8,12 +8,16 @@ public class JumpTime : MonoBehaviour {
 
     float timer;
 
+    public Button jumpButton;
+
     private Slider jumpSlider;
 
 	// Use this for initialization
 	void Start () 
     {
         jumpSlider = GameObject.Find("Jump Slider").GetComponent<Slider>();
+
+        jumpButton.gameObject.SetActive(false);
 	
 	}
 	
@@ -29,11 +33,19 @@ public class JumpTime : MonoBehaviour {
         }
         else
         {
-            print("Jump");
+            
+            //print("Jump");
+
+            jumpButton.gameObject.SetActive(true);
 
             //timer = 0;
         }
 	
 	}
+
+    public void JumpClick()
+    {
+        print("Jump");
+    }
 }
 

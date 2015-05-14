@@ -69,7 +69,7 @@ public class BulletScriptTEST : MonoBehaviour
 
         if (col.gameObject.tag == "Enemy")
         {
-            print("Bullet");
+           // print("Bullet");
         }
 
 
