@@ -19,14 +19,17 @@ public class MotherShipTest : MonoBehaviour {
 
     private bool Clicked = false;
 
-    public Texture2D cursorTexture;
-    public CursorMode cursorMode = CursorMode.Auto;
-    public Vector2 hotSpot = Vector2.zero;
+    Quaternion turRot;
+    //public Texture2D cursorTexture;
+    //public CursorMode cursorMode = CursorMode.Auto;
+    //public Vector2 hotSpot = Vector2.zero;
 
 	// Use this for initialization
 	void Start () 
     {
+        turRot = new Quaternion(this.gameObject.transform.rotation.x, this.gameObject.transform.rotation.y, this.gameObject.transform.rotation.z, this.gameObject.transform.rotation.w);
 	
+
 	}
 	
 	// Update is called once per frame
@@ -35,14 +38,14 @@ public class MotherShipTest : MonoBehaviour {
        // msAmmoText.text = "Ammo: " + MSAmmo;
 	}
 
-    void OnMouseEnter()
-    {
-        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
-    }
-    void OnMouseExit()
-    {
-        Cursor.SetCursor(null, Vector2.zero, cursorMode);
-    }
+    //void OnMouseEnter()
+    //{
+    //    //Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+    //}
+    //void OnMouseExit()
+    //{
+    //    Cursor.SetCursor(null, Vector2.zero, cursorMode);
+    //}
 
 
     void OnMouseDown()
@@ -57,7 +60,7 @@ public class MotherShipTest : MonoBehaviour {
         }
         else if (Clicked == true)
         {
-           
+            this.gameObject.transform.rotation = turRot;
 
             Clicked = false;
         }

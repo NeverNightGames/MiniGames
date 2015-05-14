@@ -146,10 +146,6 @@ public class BattleShipTEST : MonoBehaviour
 
 
         updatedFood = true;
-
-
-
-
     }
 
     public void AmmoUpgrade()
