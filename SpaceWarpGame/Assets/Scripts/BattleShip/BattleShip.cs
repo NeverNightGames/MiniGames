@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class BattleShipTEST : MonoBehaviour
+public class BattleShip : MonoBehaviour
 {
 
     public Canvas battleShipCanvas;
@@ -54,8 +54,8 @@ public class BattleShipTEST : MonoBehaviour
     private bool clickedOn;
 
     public Texture2D cursorTexture;
-    public CursorMode cursorMode = CursorMode.Auto;
-    public Vector2 hotSpot = Vector2.zero;
+    CursorMode cursorMode = CursorMode.Auto;
+    Vector2 hotSpot = Vector2.zero;
 
 
     // Use this for initialization
@@ -132,13 +132,7 @@ public class BattleShipTEST : MonoBehaviour
 
     public void EnergyUpgrade()
     {
-
-
         updatedEnergy = true;
-
-
-
-
     }
 
     public void FoodUpgrade()

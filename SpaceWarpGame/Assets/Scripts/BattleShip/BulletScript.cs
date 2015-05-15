@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletScriptTEST : MonoBehaviour
+public class BulletScript : MonoBehaviour
 {
 
     public float bulletSpeed;
@@ -57,23 +57,33 @@ public class BulletScriptTEST : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    //void OnCollisionEnter2D(Collision2D col)
+    //{
+    //    //print("HELLO");
+    //    if (col.gameObject.tag == "Border")
+    //    {
+    //       // print("Hello");
+
+    //        Destroy(this.gameObject);
+    //    }
+
+    //    if (col.gameObject.tag == "Enemy")
+    //    {
+    //       // print("Bullet");
+    //    }
+
+
+
+    //}
+
+    void OnTriggerEnter2D(Collider2D col)
     {
-        //print("HELLO");
-        if (col.gameObject.tag == "Border")
-        {
-           // print("Hello");
-
-            Destroy(this.gameObject);
-        }
-
         if (col.gameObject.tag == "Enemy")
         {
            // print("Bullet");
+
+            Destroy(this.gameObject);
         }
-
-
-
     }
 
 }

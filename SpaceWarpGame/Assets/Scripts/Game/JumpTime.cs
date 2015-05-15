@@ -4,6 +4,8 @@ using System.Collections;
 
 public class JumpTime : MonoBehaviour {
 
+    public int levelCount = 1;
+
     public float jTime;
 
     float timer;
@@ -12,17 +14,28 @@ public class JumpTime : MonoBehaviour {
 
     private Slider jumpSlider;
 
+
+    public GameObject backOBJ;
+
+    private SpriteRenderer backSprRender;
+
+    public Sprite[] backSPR;
+
 	// Use this for initialization
 	void Start () 
     {
         jumpSlider = GameObject.Find("Jump Slider").GetComponent<Slider>();
 
         jumpButton.gameObject.SetActive(false);
+
+        backSprRender = backOBJ.GetComponent<SpriteRenderer>();
+
+        backSprRender.sprite = backSPR[0];
 	
 	}
-	
-	// Update is called once per frame
-	void Update () 
+
+    // Update is called once per frame
+    void Update() 
     {
 
         jumpSlider.value = timer;
@@ -46,6 +59,17 @@ public class JumpTime : MonoBehaviour {
     public void JumpClick()
     {
         print("Jump");
+
+        levelCount++;
+
+        if (levelCount == 2)
+        {
+            backSprRender.sprite = backSPR[1];
+
+            timer = 0;
+        }
+
+       // backSPR.sprite = 
     }
 }
 

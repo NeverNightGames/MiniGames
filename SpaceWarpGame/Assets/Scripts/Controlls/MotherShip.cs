@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class MotherShipTest : MonoBehaviour {
+public class MotherShip : MonoBehaviour {
 
    // public Canvas motherShipCanvas;
 

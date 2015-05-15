@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class EnemyScriptTEST : MonoBehaviour {
+public class EnemyScript : MonoBehaviour {
 
     public float enemySpeed;
 
@@ -43,21 +43,33 @@ public class EnemyScriptTEST : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Bullet")
-        {
-            //print("ENEMY");
+        //if (col.gameObject.tag == "Bullet")
+        //{
+        //    //print("ENEMY");
 
-            enemyHealthBar.value--;
-        }
+        //    enemyHealthBar.value--;
+        //}
 
         if (col.gameObject.tag == "Border")
         {
             print("HIT");
+
+            Destroy(this.gameObject);
         }
 
         //if (col.gameObject.tag == "Ship Range")
         //{
         //    print("HIT");
         //}
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Bullet")
+        {
+            //print("ENEMY");
+
+            enemyHealthBar.value--;
+        }
     }
 }

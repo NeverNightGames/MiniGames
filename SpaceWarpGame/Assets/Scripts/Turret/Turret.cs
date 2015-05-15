@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class TurretTEST : MonoBehaviour
+public class Turret : MonoBehaviour
 {
 
     //public float bulletSpeed;
@@ -31,11 +31,14 @@ public class TurretTEST : MonoBehaviour
 
     public Texture2D cursorTexture;
     public Texture2D cursorTexture1;
-    public CursorMode cursorMode = CursorMode.Auto;
-    public Vector2 hotSpot = Vector2.zero;
+
+    public Button turretButton;
+
+    CursorMode cursorMode = CursorMode.Auto;
+    Vector2 hotSpot = Vector2.zero;
 
 
-    //private MotherShipTest motherShip;
+    private MotherShip motherShip;
 
     private TotalResources totResource;
 
@@ -43,7 +46,7 @@ public class TurretTEST : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-       // motherShip = GameObject.Find("MotherShip").GetComponent<MotherShipTest>();
+       motherShip = GameObject.Find("MotherShip").GetComponent<MotherShip>();
 
        totResource = GameObject.Find("Game Master").GetComponent<TotalResources>();
 
@@ -52,6 +55,7 @@ public class TurretTEST : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       // transform.RotateAround(this.gameObject.transform.position, Vector3.up, 20 * Time.deltaTime);
 
         if (Clicked == true)
         {
@@ -79,16 +83,16 @@ public class TurretTEST : MonoBehaviour
                 {
                     //print("G");
 
-                    if(canFireT1 == true)
-                    {
+                   // if(canFireT1 == true)
+                    //{
 
-                        if(totResource.totalAmmo >= 1)
+                        if(motherShip.MSAmmo >= 1)
                         {
                             timer += Time.fixedDeltaTime;
 
                             if (timer >= shootTime)
                             {
-                                totResource.totalAmmo--;
+                                motherShip.MSAmmo--;
 
                                 Instantiate(bulletOBJ, FirePos1.transform.position, FirePos1.transform.rotation);
 
@@ -100,16 +104,16 @@ public class TurretTEST : MonoBehaviour
                             
                         }
 
-                    }
+                    //}
 
-                    if (canFireT2 == true)
-                    {
+                   // if (canFireT2 == true)
+                   // {
                         // if (timer >= shootTime)
                         // {
-                        if (totResource.totalAmmo >= 1)
+                        if (motherShip.MSAmmo >= 1)
                         {
 
-                            totResource.totalAmmo--;
+                            motherShip.MSAmmo--;
 
                             //print("FIRING");
 
@@ -120,7 +124,7 @@ public class TurretTEST : MonoBehaviour
 
                         //timer = 0;
                         // }
-                    }
+                   // }
                     //else if (motherShip.MSAmmo <= 0)
                     //{
                     //    motherShip.MSAmmo = 0;
@@ -131,29 +135,9 @@ public class TurretTEST : MonoBehaviour
         }
     }
 
-    void OnMouseEnter()
+ 
+    public void TurrretClick()
     {
-        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
-    }
-    void OnMouseExit()
-    {
-        Cursor.SetCursor(null, Vector2.zero, cursorMode);
-    }
-            
-
-    void OnMouseDown()
-    {
-        if (gameObject.transform.name == "MS Gun 1")
-        {
-            //print("CICKED");
-
-            canFireT1 = true;
-        }
-        else if (gameObject.transform.name == "MS Gun 2")
-        {
-            canFireT2 = true;
-        }
-
         if (Clicked == false)
         {
             //Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
@@ -171,4 +155,36 @@ public class TurretTEST : MonoBehaviour
             Clicked = false;
         }
     }
+            
+
+    //void OnMouseDown()
+    //{
+    //    if (gameObject.transform.name == "MS Gun 1")
+    //    {
+    //        //print("CICKED");
+
+    //        canFireT1 = true;
+    //    }
+    //    else if (gameObject.transform.name == "MS Gun 2")
+    //    {
+    //        canFireT2 = true;
+    //    }
+
+    //   if (Clicked == false)
+    //    {
+    //        //Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
+
+    //        canFire = true;
+
+    //        Clicked = true;
+    //    }
+    //    else if (Clicked == true)
+    //    {
+    //        canFire = false;
+
+    //        Cursor.SetCursor(null, Vector2.zero, cursorMode);
+
+    //        Clicked = false;
+    //    }
+    //}
 }

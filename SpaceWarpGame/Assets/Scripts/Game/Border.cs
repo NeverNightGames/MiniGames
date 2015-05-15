@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BorderTEST : MonoBehaviour {
+public class Border : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

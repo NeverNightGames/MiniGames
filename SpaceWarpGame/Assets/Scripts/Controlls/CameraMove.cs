@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraMoveTEST : MonoBehaviour
+public class CameraMove : MonoBehaviour
 {
 
 
@@ -48,7 +48,7 @@ public class CameraMoveTEST : MonoBehaviour
             {
                 //print("Forward");
 
-                Camera.main.orthographicSize -= 3f;
+                Camera.main.orthographicSize -= 5f;
             }
         }
 
@@ -59,7 +59,7 @@ public class CameraMoveTEST : MonoBehaviour
             {
                 //print("Back");
 
-                Camera.main.orthographicSize += 3f;
+                Camera.main.orthographicSize += 5f;
             }
         }
 
@@ -121,13 +121,13 @@ public class CameraMoveTEST : MonoBehaviour
         
         if (this.gameObject.transform.position.y >= maxUp)
         {
-            print("UP");
+           // print("UP");
 
             speed = 0;
         }
         else if (this.gameObject.transform.position.y <= -maxDown)
         {
-            print("DOWN");
+           // print("DOWN");
 
             speed = 0;
         }

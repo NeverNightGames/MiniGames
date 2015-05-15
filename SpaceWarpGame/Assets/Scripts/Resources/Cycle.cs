@@ -14,11 +14,13 @@ public class Cycle : MonoBehaviour
     public Text cycleText;
 
 
-    private MotherShipTest MSScript;
+    private MotherShip MSScript;
 
-    private BattleShipTEST Ship1;
+    private BattleShip Ship1;
 
     private TotalResources totResources;
+
+    public UpgradeResource upgradeRes;
 
 
 
@@ -28,11 +30,13 @@ public class Cycle : MonoBehaviour
     {
         //print("TEST");
 
-        //MSScript = GameObject.Find("MotherShip").GetComponent<MotherShipTest>();
+        // MSScript = GameObject.Find("MotherShip").GetComponent<MotherShip>();
 
         //Ship1 = GameObject.Find("Battle Ship 1").GetComponentInParent<BattleShipTEST>();
 
-        totResources = GameObject.Find("Game Master").GetComponentInParent<TotalResources>();
+        upgradeRes = GameObject.Find("Battle Ship 1").GetComponent<UpgradeResource>();
+
+        totResources = this.gameObject.GetComponentInParent<TotalResources>();
 
     }
 
@@ -50,16 +54,76 @@ public class Cycle : MonoBehaviour
 
             // Gave 
 
-            totResources.BattleShip1.BSEnergy -= 25;
+            totResources.MSScript.MSEnergy -= 100;
 
-            if (totResources.BattleShip1.updatedEnergy == false)
+            totResources.MSScript.MSFood -= 100;
+
+
+
+            //
+
+            switch (upgradeRes.energyLevel)
             {
-                totResources.BattleShip1.BSEnergy += 20;
+                case 1:
+                    totResources.MSScript.MSEnergy += 25;
+                    break;
+                case 2:
+                    totResources.MSScript.MSEnergy += 50;
+                    break;
+                case 3:
+                    totResources.MSScript.MSEnergy += 100;
+                    break;
+                case 4:
+                    totResources.MSScript.MSEnergy += 175;
+                    break;
+                default:
+                    print("ERROR");
+                    break;
             }
-            else if (totResources.BattleShip1.updatedEnergy == true)
+
+            switch (upgradeRes.foodLevel)
             {
-                totResources.BattleShip1.BSEnergy += 30;
+                case 1:
+                    totResources.MSScript.MSFood += 50;
+                    break;
+                case 2:
+                    totResources.MSScript.MSFood += 100;
+                    break;
+                case 3:
+                    totResources.MSScript.MSFood += 150;
+                    break;
+                case 4:
+                    totResources.MSScript.MSFood += 175;
+                    break;
+                default:
+                    print("ERROR");
+                    break;
             }
+
+            switch (upgradeRes.ammoLevel)
+            {
+
+
+                case 1:
+                    totResources.MSScript.MSAmmo += 25;
+                    break;
+                case 2:
+                    totResources.MSScript.MSAmmo += 50;
+                    break;
+                case 3:
+                    totResources.MSScript.MSAmmo += 75;
+                    break;
+                case 4:
+                    totResources.MSScript.MSAmmo += 100;
+                    //canUpgradeAmmo = false;
+                    break;
+                default:
+                    print("ERROR");
+                    break;
+
+
+            }
+
 
 
 

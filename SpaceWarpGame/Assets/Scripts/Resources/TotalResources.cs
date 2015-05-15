@@ -5,9 +5,9 @@ using System.Collections;
 public class TotalResources : MonoBehaviour
 {
 
-    public BattleShipTEST BattleShip1;
+    public BattleShip BattleShip1;
 
-    public MotherShipTest MSScript;
+    public MotherShip MSScript;
 
 
     public Text TotalFoodText;
@@ -34,13 +34,13 @@ public class TotalResources : MonoBehaviour
     void Start()
     {
 
-        MSScript = GameObject.Find("MotherShip").GetComponent<MotherShipTest>();
+        MSScript = GameObject.Find("MotherShip").GetComponent<MotherShip>();
 
-        BattleShip1 = GameObject.Find("Battle Ship 1").GetComponent<BattleShipTEST>();
+        BattleShip1 = GameObject.Find("Battle Ship 1").GetComponent<BattleShip>();
 
 
 
-       // BattleShip2 = GameObject.Find("Battle Ship 2");
+        // BattleShip2 = GameObject.Find("Battle Ship 2");
 
         //BattleShip3 = GameObject.Find("Battle Ship 3");
 
@@ -54,14 +54,14 @@ public class TotalResources : MonoBehaviour
         //
         int MSEnergy = MSScript.MSEnergy;
 
-        int BS1Energy = BattleShip1.GetComponent<BattleShipTEST>().BSEnergy;
+        int BS1Energy = BattleShip1.GetComponent<BattleShip>().BSEnergy;
 
         // float BS2Energy = BattleShip2.GetComponent<BattleShipTEST>().BSEnergy;
 
         //float BS3Energy = BattleShip3.GetComponent<BattleShipTEST>().BSEnergy;
 
 
-        totalEnergy = MSEnergy + BS1Energy;// +BS2Energy + BS3Energy;
+        totalEnergy = MSEnergy +BS1Energy;// +BS2Energy + BS3Energy;
 
         TotalEnergyText.text = "Energy " + totalEnergy;
         //
@@ -70,31 +70,31 @@ public class TotalResources : MonoBehaviour
         //
         int MSFood = MSScript.MSFood;
 
-        int BS1Food = BattleShip1.GetComponent<BattleShipTEST>().BSFood;
+        int BS1Food = BattleShip1.GetComponent<BattleShip>().BSFood;
 
         //float BS2Food = BattleShip2.GetComponent<BattleShipTEST>().BSFood;
 
         //float BS3Food = BattleShip3.GetComponent<BattleShipTEST>().BSFood;
 
 
-       totalFood = MSFood + BS1Food;// +BS2Food + BS3Food;
+        totalFood = MSFood + BS1Food;// +BS2Food + BS3Food;
 
         TotalFoodText.text = "Food " + totalFood;
         //
 
-       
+
 
         //
         int MSAmmo = MSScript.MSAmmo;
 
-        int BS1Ammo = BattleShip1.GetComponent<BattleShipTEST>().BSAmmo;
+        //int BS1Ammo = BattleShip1.GetComponent<BattleShip>().BSAmmo;
 
-       // float BS2Ammo = BattleShip2.GetComponent<BattleShipTEST>().BSAmmo;
+        // float BS2Ammo = BattleShip2.GetComponent<BattleShipTEST>().BSAmmo;
 
-       // float BS3Ammo = BattleShip3.GetComponent<BattleShipTEST>().BSAmmo;
+        // float BS3Ammo = BattleShip3.GetComponent<BattleShipTEST>().BSAmmo;
 
 
-        totalAmmo = MSAmmo + BS1Ammo;// +BS2Ammo + BS3Ammo;
+        totalAmmo = MSAmmo;// +BS1Ammo;// +BS2Ammo + BS3Ammo;
 
         TotalAmmoText.text = "Ammo " + totalAmmo;
         //
@@ -102,7 +102,8 @@ public class TotalResources : MonoBehaviour
         //
         int totalAmmount = totalFood + totalEnergy + totalAmmo;
 
-        if (totalAmmount <= 0)
+
+        if (totalEnergy <= 0)
         {
             Debug.Log("GAME OVER");
         }
