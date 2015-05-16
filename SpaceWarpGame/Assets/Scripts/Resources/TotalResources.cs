@@ -5,9 +5,13 @@ using System.Collections;
 public class TotalResources : MonoBehaviour
 {
 
-    public BattleShip BattleShip1;
+    public BattleShip[] BattleShips;
+
+    private GameObject[] bShipOBJ;
 
     public MotherShip MSScript;
+
+
 
 
     public Text TotalFoodText;
@@ -19,6 +23,9 @@ public class TotalResources : MonoBehaviour
     //public Text TotalWeaponsText;
 
     public Text totalText;
+
+
+    
 
 
     public int totalEnergy;
@@ -36,13 +43,15 @@ public class TotalResources : MonoBehaviour
 
         MSScript = GameObject.Find("MotherShip").GetComponent<MotherShip>();
 
-        BattleShip1 = GameObject.Find("Battle Ship 1").GetComponent<BattleShip>();
+
+        bShipOBJ = GameObject.FindGameObjectsWithTag("Battle Ship");
 
 
+        for (int i = 0; i < bShipOBJ.Length; i++)
+        {
+            BattleShips[i] = bShipOBJ[i].GetComponent<BattleShip>();
 
-        // BattleShip2 = GameObject.Find("Battle Ship 2");
-
-        //BattleShip3 = GameObject.Find("Battle Ship 3");
+        }
 
 
     }
@@ -54,14 +63,20 @@ public class TotalResources : MonoBehaviour
         //
         int MSEnergy = MSScript.MSEnergy;
 
-        int BS1Energy = BattleShip1.GetComponent<BattleShip>().BSEnergy;
+        for (int i = 0; i < BattleShips.Length; i++)
+        {
+            int S1Energy = BattleShips[0].BSEnergy;
 
-        // float BS2Energy = BattleShip2.GetComponent<BattleShipTEST>().BSEnergy;
+            int S2Energy = BattleShips[1].BSEnergy;
 
-        //float BS3Energy = BattleShip3.GetComponent<BattleShipTEST>().BSEnergy;
+            int S3Energy = BattleShips[2].BSEnergy;
 
+            int S4Energy = BattleShips[3].BSEnergy;
 
-        totalEnergy = MSEnergy +BS1Energy;// +BS2Energy + BS3Energy;
+            int S5Energy = BattleShips[4].BSEnergy;
+
+            totalEnergy = S1Energy + S2Energy + S3Energy + S4Energy + S5Energy + MSEnergy;
+        }
 
         TotalEnergyText.text = "Energy " + totalEnergy;
         //
@@ -70,34 +85,37 @@ public class TotalResources : MonoBehaviour
         //
         int MSFood = MSScript.MSFood;
 
-        int BS1Food = BattleShip1.GetComponent<BattleShip>().BSFood;
+        for (int i = 0; i < BattleShips.Length; i++)
+        {
+            int S1Food = BattleShips[0].BSFood;
 
-        //float BS2Food = BattleShip2.GetComponent<BattleShipTEST>().BSFood;
+            int S2Food = BattleShips[1].BSFood;
 
-        //float BS3Food = BattleShip3.GetComponent<BattleShipTEST>().BSFood;
+            int S3Food = BattleShips[2].BSFood;
 
+            int S4Food = BattleShips[3].BSFood;
 
-        totalFood = MSFood + BS1Food;// +BS2Food + BS3Food;
+            int S5Food = BattleShips[4].BSFood;
+
+            totalFood = S1Food + S2Food + S3Food + S4Food + S5Food + MSFood;
+
+        }
+
+       // print(MSFood);
 
         TotalFoodText.text = "Food " + totalFood;
         //
 
-
-
         //
         int MSAmmo = MSScript.MSAmmo;
 
-        //int BS1Ammo = BattleShip1.GetComponent<BattleShip>().BSAmmo;
-
-        // float BS2Ammo = BattleShip2.GetComponent<BattleShipTEST>().BSAmmo;
-
-        // float BS3Ammo = BattleShip3.GetComponent<BattleShipTEST>().BSAmmo;
 
 
         totalAmmo = MSAmmo;// +BS1Ammo;// +BS2Ammo + BS3Ammo;
 
         TotalAmmoText.text = "Ammo " + totalAmmo;
         //
+
 
         //
         int totalAmmount = totalFood + totalEnergy + totalAmmo;

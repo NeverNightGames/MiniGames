@@ -83,20 +83,73 @@ public class CameraMove : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButton(1))
+
+
+
+        //if (Input.GetMouseButton(1))
+        //{
+        //    //print("PRESS");
+
+
+        //    transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * sideSpeed, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speed, 0f);
+
+        //    // Camera.main.transform.Translate(mousPos);
+        //}
+        //else
+        //{
+        //    this.gameObject.transform.position = currentCamPos;
+        //}
+
+
+        if (Input.GetKey(KeyCode.D))
         {
-            //print("PRESS");
+            transform.position += new Vector3(sideSpeed * Time.deltaTime,0,0);
 
-
-            transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * sideSpeed, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speed, 0f);
-
-            // Camera.main.transform.Translate(mousPos);
+            //print("D");
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+            this.gameObject.transform.position = currentCamPos;
+        }
+     
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position += new Vector3(-sideSpeed * Time.deltaTime, 0, 0);
+
+            //print("D");
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
         {
             this.gameObject.transform.position = currentCamPos;
         }
 
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += new Vector3(0, speed * Time.deltaTime, 0);
+
+            //print("D");
+        }
+        else if (Input.GetKeyUp(KeyCode.W))
+        {
+            this.gameObject.transform.position = currentCamPos;
+        }
+
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position += new Vector3(0, -speed * Time.deltaTime, 0);
+
+            //print("D");
+        }
+        else if (Input.GetKeyUp(KeyCode.S))
+        {
+           // print("Reset");
+
+            this.gameObject.transform.position = currentCamPos;
+        }
+        
+  
 
 
 

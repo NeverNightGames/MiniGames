@@ -16,11 +16,37 @@ public class Cycle : MonoBehaviour
 
     private MotherShip MSScript;
 
-    private BattleShip Ship1;
+
+    public UpgradeResource[] BSUpgradeResource;
+
+    private GameObject[] bShipOBJ;
+
 
     private TotalResources totResources;
 
-    public UpgradeResource upgradeRes;
+
+    public int level1EnergyUpgrade;
+
+    public int level2EnergyUpgrade;
+
+    public int level3EnergyUpgrade;
+
+    public int level4EnergyUpgrade;
+
+
+    public int level1FoodUpgrade;
+
+    public int level2FoodUpgrade;
+
+    public int level3FoodUpgrade;
+
+    public int level4FoodUpgrade;
+
+   
+
+
+
+
 
 
 
@@ -28,15 +54,17 @@ public class Cycle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //print("TEST");
 
-        // MSScript = GameObject.Find("MotherShip").GetComponent<MotherShip>();
-
-        //Ship1 = GameObject.Find("Battle Ship 1").GetComponentInParent<BattleShipTEST>();
-
-        upgradeRes = GameObject.Find("Battle Ship 1").GetComponent<UpgradeResource>();
+        //upgradeRes = GameObject.Find("Battle Ship 1").GetComponent<UpgradeResource>();
 
         totResources = this.gameObject.GetComponentInParent<TotalResources>();
+
+        bShipOBJ = GameObject.FindGameObjectsWithTag("Battle Ship");
+
+        for (int i = 0; i < bShipOBJ.Length; i++)
+        {
+            BSUpgradeResource[i] = bShipOBJ[i].GetComponent<UpgradeResource>();
+        }
 
     }
 
@@ -46,83 +74,37 @@ public class Cycle : MonoBehaviour
         timer += Time.fixedDeltaTime;
 
 
+        //print(totResources.totalEnergy);
 
 
         //Cycle
         if (timer >= cycleTime)
         {
 
-            // Gave 
+            // 
 
-            totResources.MSScript.MSEnergy -= 100;
+            totResources.totalEnergy -= 100;
 
-            totResources.MSScript.MSFood -= 100;
+            totResources.totalFood -= 100;
 
+            //for (int i = 0; i < BSUpgradeResource.Length; i++)
+            //{
+            //}
 
+            ResourceEnergyLevelUpgrade();
 
-            //
-
-            switch (upgradeRes.energyLevel)
-            {
-                case 1:
-                    totResources.MSScript.MSEnergy += 25;
-                    break;
-                case 2:
-                    totResources.MSScript.MSEnergy += 50;
-                    break;
-                case 3:
-                    totResources.MSScript.MSEnergy += 100;
-                    break;
-                case 4:
-                    totResources.MSScript.MSEnergy += 175;
-                    break;
-                default:
-                    print("ERROR");
-                    break;
-            }
-
-            switch (upgradeRes.foodLevel)
-            {
-                case 1:
-                    totResources.MSScript.MSFood += 50;
-                    break;
-                case 2:
-                    totResources.MSScript.MSFood += 100;
-                    break;
-                case 3:
-                    totResources.MSScript.MSFood += 150;
-                    break;
-                case 4:
-                    totResources.MSScript.MSFood += 175;
-                    break;
-                default:
-                    print("ERROR");
-                    break;
-            }
-
-            switch (upgradeRes.ammoLevel)
-            {
+            ResourceFoodLevelUpgrade();
+            
+   
 
 
-                case 1:
-                    totResources.MSScript.MSAmmo += 25;
-                    break;
-                case 2:
-                    totResources.MSScript.MSAmmo += 50;
-                    break;
-                case 3:
-                    totResources.MSScript.MSAmmo += 75;
-                    break;
-                case 4:
-                    totResources.MSScript.MSAmmo += 100;
-                    //canUpgradeAmmo = false;
-                    break;
-                default:
-                    print("ERROR");
-                    break;
 
 
-            }
+
+
+
+
+
 
 
 
@@ -142,4 +124,214 @@ public class Cycle : MonoBehaviour
 
 
     }
+
+    void ResourceEnergyLevelUpgrade()
+    {
+
+        switch (BSUpgradeResource[0].energyLevel)
+        {
+            case 1:
+                bShipOBJ[0].GetComponent<BattleShip>().BSEnergy += level1EnergyUpgrade;
+                break;
+            case 2:
+                bShipOBJ[0].GetComponent<BattleShip>().BSEnergy += level2EnergyUpgrade;
+                break;
+            case 3:
+                bShipOBJ[0].GetComponent<BattleShip>().BSEnergy += level3EnergyUpgrade;
+                break;
+            case 4:
+                bShipOBJ[0].GetComponent<BattleShip>().BSEnergy += level4EnergyUpgrade;
+                break;
+            default:
+                print("ERROR!");
+                break;
+        }
+
+        switch (BSUpgradeResource[1].energyLevel)
+        {
+            case 1:
+                bShipOBJ[1].GetComponent<BattleShip>().BSEnergy += level1EnergyUpgrade;
+                break;
+            case 2:
+                bShipOBJ[1].GetComponent<BattleShip>().BSEnergy += level2EnergyUpgrade;
+                break;
+            case 3:
+                bShipOBJ[1].GetComponent<BattleShip>().BSEnergy += level3EnergyUpgrade;
+                break;
+            case 4:
+                bShipOBJ[1].GetComponent<BattleShip>().BSEnergy += level4EnergyUpgrade;
+                break;
+            default:
+                print("ERROR!");
+                break;
+        }
+
+
+        switch (BSUpgradeResource[2].energyLevel)
+        {
+            case 1:
+                bShipOBJ[2].GetComponent<BattleShip>().BSEnergy += level1EnergyUpgrade;
+                break;
+            case 2:
+                bShipOBJ[2].GetComponent<BattleShip>().BSEnergy += level2EnergyUpgrade;
+                break;
+            case 3:
+                bShipOBJ[2].GetComponent<BattleShip>().BSEnergy += level3EnergyUpgrade;
+                break;
+            case 4:
+                bShipOBJ[2].GetComponent<BattleShip>().BSEnergy += level4EnergyUpgrade;
+                break;
+            default:
+                print("ERROR!");
+                break;
+        }
+
+        switch (BSUpgradeResource[3].energyLevel)
+        {
+            case 1:
+                bShipOBJ[3].GetComponent<BattleShip>().BSEnergy += level1EnergyUpgrade;
+                break;
+            case 2:
+                bShipOBJ[3].GetComponent<BattleShip>().BSEnergy += level2EnergyUpgrade;
+                break;
+            case 3:
+                bShipOBJ[3].GetComponent<BattleShip>().BSEnergy += level3EnergyUpgrade;
+                break;
+            case 4:
+                bShipOBJ[3].GetComponent<BattleShip>().BSEnergy += level4EnergyUpgrade;
+                break;
+            default:
+                print("ERROR!");
+                break;
+        }
+
+        switch (BSUpgradeResource[4].energyLevel)
+        {
+            case 1:
+                bShipOBJ[4].GetComponent<BattleShip>().BSEnergy += level1EnergyUpgrade;
+                break;
+            case 2:
+                bShipOBJ[4].GetComponent<BattleShip>().BSEnergy += level2EnergyUpgrade;
+                break;
+            case 3:
+                bShipOBJ[4].GetComponent<BattleShip>().BSEnergy += level3EnergyUpgrade;
+                break;
+            case 4:
+                bShipOBJ[4].GetComponent<BattleShip>().BSEnergy += level4EnergyUpgrade;
+                break;
+            default:
+                print("ERROR!");
+                break;
+        }
+
+       
+    }
+
+    void ResourceFoodLevelUpgrade()
+    {
+        switch (BSUpgradeResource[0].foodLevel)
+        {
+            case 1:
+                bShipOBJ[0].GetComponent<BattleShip>().BSFood += level1FoodUpgrade;
+                break;
+            case 2:
+                bShipOBJ[0].GetComponent<BattleShip>().BSFood += level2FoodUpgrade;
+                break;
+            case 3:
+                bShipOBJ[0].GetComponent<BattleShip>().BSFood += level3FoodUpgrade;
+                break;
+            case 4:
+                bShipOBJ[0].GetComponent<BattleShip>().BSFood += level4FoodUpgrade;
+                break;
+            default:
+                print("ERROR!");
+                break;
+        }
+
+        switch (BSUpgradeResource[1].foodLevel)
+        {
+            case 1:
+                bShipOBJ[1].GetComponent<BattleShip>().BSFood += level1FoodUpgrade;
+                break;
+            case 2:
+                bShipOBJ[1].GetComponent<BattleShip>().BSFood += level2FoodUpgrade;
+                break;
+            case 3:
+                bShipOBJ[1].GetComponent<BattleShip>().BSFood += level3FoodUpgrade;
+                break;
+            case 4:
+                bShipOBJ[1].GetComponent<BattleShip>().BSFood += level4FoodUpgrade;
+                break;
+            default:
+                print("ERROR!");
+                break;
+        }
+
+        switch (BSUpgradeResource[2].foodLevel)
+        {
+            case 1:
+                bShipOBJ[2].GetComponent<BattleShip>().BSFood += level1FoodUpgrade;
+                break;
+            case 2:
+                bShipOBJ[2].GetComponent<BattleShip>().BSFood += level2FoodUpgrade;
+                break;
+            case 3:
+                bShipOBJ[2].GetComponent<BattleShip>().BSFood += level3FoodUpgrade;
+                break;
+            case 4:
+                bShipOBJ[2].GetComponent<BattleShip>().BSFood += level4FoodUpgrade;
+                break;
+            default:
+                print("ERROR!");
+                break;
+        }
+
+
+        switch (BSUpgradeResource[3].foodLevel)
+        {
+            case 1:
+                bShipOBJ[3].GetComponent<BattleShip>().BSFood += level1FoodUpgrade;
+                break;
+            case 2:
+                bShipOBJ[3].GetComponent<BattleShip>().BSFood += level2FoodUpgrade;
+                break;
+            case 3:
+                bShipOBJ[3].GetComponent<BattleShip>().BSFood += level3FoodUpgrade;
+                break;
+            case 4:
+                bShipOBJ[3].GetComponent<BattleShip>().BSFood += level4FoodUpgrade;
+                break;
+            default:
+                print("ERROR!");
+                break;
+        }
+
+
+        switch (BSUpgradeResource[4].foodLevel)
+        {
+            case 1:
+                bShipOBJ[4].GetComponent<BattleShip>().BSFood += level1FoodUpgrade;
+                break;
+            case 2:
+                bShipOBJ[4].GetComponent<BattleShip>().BSFood += level2FoodUpgrade;
+                break;
+            case 3:
+                bShipOBJ[4].GetComponent<BattleShip>().BSFood += level3FoodUpgrade;
+                break;
+            case 4:
+                bShipOBJ[4].GetComponent<BattleShip>().BSFood += level4FoodUpgrade;
+                break;
+            default:
+                print("ERROR!");
+                break;
+        }
+        
+    }
+
+    void ResourceAmmoLevelUpgrade()
+    {
+    }
+
+
+
 }
