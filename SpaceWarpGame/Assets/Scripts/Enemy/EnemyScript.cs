@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        enemyHealthBar = this.gameObject.GetComponentInChildren<Slider>();
 	
 	}
 	
