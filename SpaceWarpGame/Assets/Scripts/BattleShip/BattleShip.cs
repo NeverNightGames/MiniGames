@@ -70,17 +70,10 @@ public class BattleShip : MonoBehaviour
     }
 
 
-    void FixedUpdate()
-    {
-        //BSEnergy += Time.fixedDeltaTime;
-
-
-        //energyText.text = "Energy " + BSEnergy; //Mathf.Round(BSEnergy);
-    }
-
     // Update is called once per frame
     void Update()
     {
+
         energyText.text = "" + BSEnergy; //Mathf.Round(BSEnergy);
 
         foodText.text = "" + BSFood;
@@ -90,16 +83,31 @@ public class BattleShip : MonoBehaviour
         weaponsText.text = "" + BSWeapons;
 
 
-        //energyLevelText.text = "Energy LV: " + energyLevel;
-
-        //foodLevelText.text = "Food LV: " + foodLevel;
-
-        //ammoLevelText.text = "Ammo LV: " + ammoLevel;
-
-        //weaponsLevelText.text = "Weapons LV: " + weaponsLevel; 
 
 
+        healthBar.fillRect.GetComponent<Image>().color = Color.green;
 
+        if (healthBar.value <= 50 && healthBar.value >= 26)
+        {
+            healthBar.fillRect.GetComponent<Image>().color = Color.yellow;
+        }
+        else if(healthBar.value <= 25)
+        {
+            healthBar.fillRect.GetComponent<Image>().color = Color.red;
+        }
+
+        if(healthBar.value <= 1)
+        {
+            print("Battle Ship Gone");
+
+            this.gameObject.SetActive(false);
+
+            BSEnergy -= 250;
+
+            BSFood -= 125;
+
+            BSAmmo -= 100;
+        }
     }
 
     void OnMouseEnter()
@@ -154,15 +162,16 @@ public class BattleShip : MonoBehaviour
     public void WeaponsUpgrade()
     {
 
-
         print("Weapons");
     }
 
 
-
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        // Debug.Log("HELLO");
+        if (col.gameObject.tag == "Enemy Bullet")
+        {
+            healthBar.value--;
+        }
     }
 
 }

@@ -19,9 +19,11 @@ public class MotherShip : MonoBehaviour {
 
     public bool Clicked = false;
 
-    public Turret theTurret;
+    Turret theTurret;
 
-     Quaternion turRot;
+    public Slider MSHealthBar;
+
+    Quaternion turRot;
 
     public Texture2D cursorTexture;
     public Texture2D cursorTexture1;
@@ -41,14 +43,29 @@ public class MotherShip : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-       // msAmmoText.text = "Ammo: " + MSAmmo;
+        MSHealthBar.fillRect.GetComponent<Image>().color = Color.green;
+
+        if (MSHealthBar.value <= 250 && MSHealthBar.value >= 130)
+        {
+            MSHealthBar.fillRect.GetComponent<Image>().color = Color.yellow;
+        }
+        else if (MSHealthBar.value <= 125)
+        {
+            MSHealthBar.fillRect.GetComponent<Image>().color = Color.red;
+        }
+
+        if (MSHealthBar.value <= 1)
+        {
+            print("Game Over");
+
+            Application.LoadLevel(3);
+        }
+      
 	}
 
     void OnMouseEnter()
     {
-
         Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
-
     }
 
     void OnMouseExit()
@@ -56,15 +73,9 @@ public class MotherShip : MonoBehaviour {
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
     }
     
-
-
-
-
     void OnMouseDown()
     {
         print("clicked");
-
-       
 
         if (Clicked == false)
         {
@@ -80,5 +91,11 @@ public class MotherShip : MonoBehaviour {
 
             Clicked = false;
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        MSHealthBar.value--;
+
     }
 }

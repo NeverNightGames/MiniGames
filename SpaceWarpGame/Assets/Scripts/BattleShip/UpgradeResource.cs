@@ -75,13 +75,13 @@ public class UpgradeResource : MonoBehaviour
     void Update()
     {
 
-        upgradeCost1 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
+        //upgradeCost1 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
 
-        upgradeCost2 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
+        //upgradeCost2 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
 
-        upgradeCost3 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
+        //upgradeCost3 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
 
-        upgradeCost4 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
+        //upgradeCost4 = 13 + energyLevel + (2 * foodLevel + 2 * ammoLevel + 2 * weaponsLevel);
 
 
 
@@ -89,16 +89,16 @@ public class UpgradeResource : MonoBehaviour
         switch (energyLevel)
         {
             case 1:
-                energyCostText.text = "Cost: " + upgradeCost1;
+                energyCostText.text = "     " + upgradeCost1;
                 break;
             case 2:
-                energyCostText.text = "Cost: " + upgradeCost2;
+                energyCostText.text = "     " + upgradeCost2;
                 break;
             case 3:
-                energyCostText.text = "Cost: " + upgradeCost3;
+                energyCostText.text = "     " + upgradeCost3;
                 break;
             case 4:
-                energyCostText.text = "Cost: " + upgradeCost4;
+                energyCostText.text = "     " + upgradeCost4;
                 canUpgradeEnergy = false;
                 break;
             default:
@@ -111,16 +111,16 @@ public class UpgradeResource : MonoBehaviour
         {
                 
             case 1:
-                foodCostText.text = "Cost: " + upgradeCost1;
+                foodCostText.text = "     " + upgradeCost1;
                 break;
             case 2:
-                foodCostText.text = "Cost: " + upgradeCost2;
+                foodCostText.text = "     " + upgradeCost2;
                 break;
             case 3:
-                foodCostText.text = "Cost: " + upgradeCost3;
+                foodCostText.text = "     " + upgradeCost3;
                 break;
             case 4:
-                foodCostText.text = "Cost: " + upgradeCost4;
+                foodCostText.text = "     " + upgradeCost4;
                 canUpgradeFood = false;
                 break;
             default:
@@ -132,18 +132,18 @@ public class UpgradeResource : MonoBehaviour
         switch (ammoLevel)
         {
             case 1:
-                ammoCostText.text = "Cost " + upgradeCost1;
+                ammoCostText.text = "     " + upgradeCost1;
                 break;
             case 2:
-                ammoCostText.text = "Cost " + upgradeCost2;
+                ammoCostText.text = "     " + upgradeCost2;
                 totResource.totalAmmo += 50;
                 break;
             case 3:
-                ammoCostText.text = "Cost " + upgradeCost3;
+                ammoCostText.text = "     " + upgradeCost3;
                 totResource.totalAmmo += 75;
                 break;
             case 4:
-                ammoCostText.text = "Cost " + upgradeCost4;
+                ammoCostText.text = "     " + upgradeCost4;
                 totResource.totalAmmo += 100;
                 canUpgradeAmmo = false;
                 break;
@@ -158,16 +158,16 @@ public class UpgradeResource : MonoBehaviour
         switch (weaponsLevel)
         {
             case 1:
-                weaponCostText.text = "Cost " + upgradeCost1;
+                weaponCostText.text = "     " + upgradeCost1;
                 break;
             case 2:
-                weaponCostText.text = "Cost " + upgradeCost2;
+                weaponCostText.text = "     " + upgradeCost2;
                 break;
             case 3:
-                weaponCostText.text = "Cost " + upgradeCost3;
+                weaponCostText.text = "     " + upgradeCost3;
                 break;
             case 4:
-                weaponCostText.text = "Cost " + upgradeCost4;
+                weaponCostText.text = "     " + upgradeCost4;
                canUpgradeWeapons = false;
                 break;
             default:
@@ -178,13 +178,13 @@ public class UpgradeResource : MonoBehaviour
         //
 
         // Levels text
-        energyLevelText.text = "Energy: " + energyLevel;
+        energyLevelText.text = "                       " + energyLevel;
 
-        foodLevelText.text = "Food: " + foodLevel;
+        foodLevelText.text = "                       " + foodLevel;
 
-        ammoLevelText.text = "Ammo " + ammoLevel;
+        ammoLevelText.text = "                       " + ammoLevel;
 
-        weaponsLevelText.text = "Weapons: " + weaponsLevel;
+        weaponsLevelText.text = "                       " + weaponsLevel;
         //
 
 

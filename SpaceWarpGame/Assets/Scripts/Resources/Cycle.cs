@@ -42,20 +42,19 @@ public class Cycle : MonoBehaviour
 
     public int level4FoodUpgrade;
 
-   
 
+    public int Level1AmmoUpgrade;
 
+    public int Level2AmmoUpgrade;
 
+    public int Level3AmmoUpgrade;
 
-
-
+    public int Level4AmmoUpgrade;
 
 
     // Use this for initialization
     void Start()
     {
-
-        //upgradeRes = GameObject.Find("Battle Ship 1").GetComponent<UpgradeResource>();
 
         totResources = this.gameObject.GetComponentInParent<TotalResources>();
 
@@ -74,7 +73,6 @@ public class Cycle : MonoBehaviour
         timer += Time.fixedDeltaTime;
 
 
-        //print(totResources.totalEnergy);
 
 
         //Cycle
@@ -87,26 +85,13 @@ public class Cycle : MonoBehaviour
 
             totResources.totalFood -= 100;
 
-            //for (int i = 0; i < BSUpgradeResource.Length; i++)
-            //{
-            //}
+
 
             ResourceEnergyLevelUpgrade();
 
             ResourceFoodLevelUpgrade();
-            
-   
 
-
-
-
-
-
-
-
-
-
-
+            ResourceAmmoLevelUpgrade();
 
 
             cycle += 1;
@@ -116,12 +101,6 @@ public class Cycle : MonoBehaviour
         }
 
         cycleText.text = "Cycle " + cycle;
-
-
-
-
-
-
 
     }
 
@@ -330,6 +309,101 @@ public class Cycle : MonoBehaviour
 
     void ResourceAmmoLevelUpgrade()
     {
+        switch (BSUpgradeResource[0].ammoLevel)
+        {
+            case 1:
+                bShipOBJ[0].GetComponent<BattleShip>().BSAmmo += Level1AmmoUpgrade;
+                break;
+            case 2:
+                bShipOBJ[0].GetComponent<BattleShip>().BSAmmo += Level2AmmoUpgrade;
+                break;
+            case 3:
+                bShipOBJ[0].GetComponent<BattleShip>().BSAmmo += Level3AmmoUpgrade;
+                break;
+            case 4:
+                bShipOBJ[0].GetComponent<BattleShip>().BSAmmo += Level4AmmoUpgrade;
+                break;
+            default:
+                print("ERROR");
+                break;
+        }
+
+        switch (BSUpgradeResource[1].ammoLevel)
+        {
+            case 1:
+                bShipOBJ[1].GetComponent<BattleShip>().BSAmmo += Level1AmmoUpgrade;
+                break;
+            case 2:
+                bShipOBJ[1].GetComponent<BattleShip>().BSAmmo += Level2AmmoUpgrade;
+                break;
+            case 3:
+                bShipOBJ[1].GetComponent<BattleShip>().BSAmmo += Level3AmmoUpgrade;
+                break;
+            case 4:
+                bShipOBJ[1].GetComponent<BattleShip>().BSAmmo += Level4AmmoUpgrade;
+                break;
+            default:
+                print("ERROR");
+                break;
+        }
+
+        switch (BSUpgradeResource[2].ammoLevel)
+        {
+            case 1:
+                bShipOBJ[2].GetComponent<BattleShip>().BSAmmo += Level1AmmoUpgrade;
+                break;
+            case 2:
+                bShipOBJ[2].GetComponent<BattleShip>().BSAmmo += Level2AmmoUpgrade;
+                break;
+            case 3:
+                bShipOBJ[2].GetComponent<BattleShip>().BSAmmo += Level3AmmoUpgrade;
+                break;
+            case 4:
+                bShipOBJ[2].GetComponent<BattleShip>().BSAmmo += Level4AmmoUpgrade;
+                break;
+            default:
+                print("ERROR");
+                break;
+        }
+
+        switch (BSUpgradeResource[3].ammoLevel)
+        {
+            case 1:
+                bShipOBJ[3].GetComponent<BattleShip>().BSAmmo += Level1AmmoUpgrade;
+                break;
+            case 2:
+                bShipOBJ[3].GetComponent<BattleShip>().BSAmmo += Level2AmmoUpgrade;
+                break;
+            case 3:
+                bShipOBJ[3].GetComponent<BattleShip>().BSAmmo += Level3AmmoUpgrade;
+                break;
+            case 4:
+                bShipOBJ[3].GetComponent<BattleShip>().BSAmmo += Level4AmmoUpgrade;
+                break;
+            default:
+                print("ERROR");
+                break;
+        }
+
+        switch (BSUpgradeResource[4].ammoLevel)
+        {
+            case 1:
+                bShipOBJ[4].GetComponent<BattleShip>().BSAmmo += Level1AmmoUpgrade;
+                break;
+            case 2:
+                bShipOBJ[4].GetComponent<BattleShip>().BSAmmo += Level2AmmoUpgrade;
+                break;
+            case 3:
+                bShipOBJ[4].GetComponent<BattleShip>().BSAmmo += Level3AmmoUpgrade;
+                break;
+            case 4:
+                bShipOBJ[4].GetComponent<BattleShip>().BSAmmo += Level4AmmoUpgrade;
+                break;
+            default:
+                print("ERROR");
+                break;
+        }
+
     }
 
 

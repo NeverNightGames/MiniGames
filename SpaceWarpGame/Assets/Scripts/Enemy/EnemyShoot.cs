@@ -12,10 +12,14 @@ public class EnemyShoot : MonoBehaviour
 
     Vector3 motherShipPos;
 
+    public GameObject shootArea;
+
+    public GameObject bullet;
+
     // Use this for initialization
     void Start()
     {
-       motherShip = GameObject.Find("MotherShip");
+        motherShip = GameObject.Find("MotherShip");
 
         Turet = GameObject.Find("Enemy Gun");
 
@@ -34,8 +38,9 @@ public class EnemyShoot : MonoBehaviour
 
          Turet.transform.rotation = Quaternion.AngleAxis(angle1, Vector3.forward);
 
-
        // Turet.transform.rotation = Quaternion.AngleAxis(angle2, Vector3.forward);
+
+         Instantiate(bullet, shootArea.transform.position, shootArea.transform.rotation);
 
 
 

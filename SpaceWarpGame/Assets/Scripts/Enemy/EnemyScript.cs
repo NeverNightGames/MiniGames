@@ -36,7 +36,7 @@ public class EnemyScript : MonoBehaviour {
 
         if (enemyHealthBar.value <= 1)
         {
-            print("Enemy Gone");
+            //print("Enemy Gone");
 
             Destroy(this.gameObject);
         }
@@ -56,6 +56,16 @@ public class EnemyScript : MonoBehaviour {
             print("HIT");
 
             Destroy(this.gameObject);
+        }
+
+        if (col.gameObject.tag == "Battle Ship")
+        {
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(),GetComponent<Collider2D>());
+        }
+
+        if (col.gameObject.tag == "Enemy")
+        {
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
 
         //if (col.gameObject.tag == "Ship Range")

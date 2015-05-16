@@ -53,28 +53,9 @@ public class BulletScript : MonoBehaviour
            //  print("DEAD");
         }
 
-
-
     }
 
-    //void OnCollisionEnter2D(Collision2D col)
-    //{
-    //    //print("HELLO");
-    //    if (col.gameObject.tag == "Border")
-    //    {
-    //       // print("Hello");
-
-    //        Destroy(this.gameObject);
-    //    }
-
-    //    if (col.gameObject.tag == "Enemy")
-    //    {
-    //       // print("Bullet");
-    //    }
-
-
-
-    //}
+ 
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -83,6 +64,11 @@ public class BulletScript : MonoBehaviour
            // print("Bullet");
 
             Destroy(this.gameObject);
+        }
+
+        if (col.gameObject.tag == "Battle Ship")
+        {
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
     }
 

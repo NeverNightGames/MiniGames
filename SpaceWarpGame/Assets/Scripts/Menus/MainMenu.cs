@@ -4,8 +4,16 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
+    public Canvas menuCanvas;
+
+    public Canvas creditsCanvas;
+
+
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
+        creditsCanvas.gameObject.SetActive(false);
 	
 	}
 	
@@ -26,5 +34,19 @@ public class MainMenu : MonoBehaviour {
         // print("Pressed");
 
         Application.Quit();
+    }
+
+    public void CreditsPress()
+    {
+        menuCanvas.gameObject.SetActive(false);
+
+        creditsCanvas.gameObject.SetActive(true);
+    }
+
+    public void CreditsQuit()
+    {
+        menuCanvas.gameObject.SetActive(true);
+
+        creditsCanvas.gameObject.SetActive(false);
     }
 }
