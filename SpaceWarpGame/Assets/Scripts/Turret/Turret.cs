@@ -22,7 +22,7 @@ public class Turret : MonoBehaviour
 
     private bool Clicked = false;
 
-    private bool canFire;
+    public bool canFire;
 
 
     public bool canFireT1;
@@ -32,7 +32,7 @@ public class Turret : MonoBehaviour
     public Texture2D cursorTexture;
     public Texture2D cursorTexture1;
 
-    public Button turretButton;
+   // public Button turretButton;
 
     CursorMode cursorMode = CursorMode.Auto;
     Vector2 hotSpot = Vector2.zero;
@@ -57,7 +57,7 @@ public class Turret : MonoBehaviour
     {
        // transform.RotateAround(this.gameObject.transform.position, Vector3.up, 20 * Time.deltaTime);
 
-        if (Clicked == true)
+        if (motherShip.Clicked == true)
         {
             // Look at
             Vector3 mousePosition = Input.mousePosition;
@@ -122,39 +122,31 @@ public class Turret : MonoBehaviour
                             bulletOBJ.transform.LookAt(mousePosition);
                         }
 
-                        //timer = 0;
-                        // }
-                   // }
-                    //else if (motherShip.MSAmmo <= 0)
-                    //{
-                    //    motherShip.MSAmmo = 0;
-                    //}
-
                 }
             }
         }
     }
 
  
-    public void TurrretClick()
-    {
-        if (Clicked == false)
-        {
-            //Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
+    //public void TurrretClick()
+    //{
+    //    if (Clicked == false)
+    //    {
+    //        //Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
 
-            canFire = true;
+    //        canFire = true;
 
-            Clicked = true;
-        }
-        else if (Clicked == true)
-        {
-            canFire = false;
+    //        Clicked = true;
+    //    }
+    //    else if (Clicked == true)
+    //    {
+    //        canFire = false;
 
-            Cursor.SetCursor(null, Vector2.zero, cursorMode);
+    //        Cursor.SetCursor(null, Vector2.zero, cursorMode);
 
-            Clicked = false;
-        }
-    }
+    //        Clicked = false;
+    //    }
+    //}
             
 
     //void OnMouseDown()

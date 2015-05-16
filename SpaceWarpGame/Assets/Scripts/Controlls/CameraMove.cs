@@ -5,9 +5,13 @@ public class CameraMove : MonoBehaviour
 {
 
 
-    public float speed = 3f;
+    public float Upspeed = 3f;
 
-    public float sideSpeed = 3f;
+    public float Downspeed = 3f;
+
+    public float RsideSpeed = 3f;
+
+    public float LsideSpeed = 3f;
 
 
     bool canZoomOut = true;
@@ -24,6 +28,8 @@ public class CameraMove : MonoBehaviour
     public int maxUp;
 
     public int maxDown;
+
+    bool canMoveBack;
    
    
 
@@ -31,6 +37,8 @@ public class CameraMove : MonoBehaviour
     void Start()
     {
         currentCamPos = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y,this.gameObject.transform.position.z);
+
+
 
         
     }
@@ -83,72 +91,39 @@ public class CameraMove : MonoBehaviour
         }
 
 
-
-
-
-        //if (Input.GetMouseButton(1))
-        //{
-        //    //print("PRESS");
-
-
-        //    transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * sideSpeed, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speed, 0f);
-
-        //    // Camera.main.transform.Translate(mousPos);
-        //}
-        //else
-        //{
-        //    this.gameObject.transform.position = currentCamPos;
-        //}
-
-
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += new Vector3(sideSpeed * Time.deltaTime,0,0);
+            transform.position += new Vector3(RsideSpeed * Time.deltaTime,0,0);
 
             //print("D");
         }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-            this.gameObject.transform.position = currentCamPos;
-        }
+     
      
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += new Vector3(-sideSpeed * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(-LsideSpeed * Time.deltaTime, 0, 0);
 
             //print("D");
         }
-        else if (Input.GetKeyUp(KeyCode.A))
-        {
-            this.gameObject.transform.position = currentCamPos;
-        }
+     
 
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += new Vector3(0, speed * Time.deltaTime, 0);
+            transform.position += new Vector3(0, Upspeed * Time.deltaTime, 0);
 
             //print("D");
         }
-        else if (Input.GetKeyUp(KeyCode.W))
-        {
-            this.gameObject.transform.position = currentCamPos;
-        }
+     
 
 
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position += new Vector3(0, -speed * Time.deltaTime, 0);
+            transform.position += new Vector3(0, -Downspeed * Time.deltaTime, 0);
 
             //print("D");
         }
-        else if (Input.GetKeyUp(KeyCode.S))
-        {
-           // print("Reset");
-
-            this.gameObject.transform.position = currentCamPos;
-        }
-        
+    
   
 
 
@@ -157,36 +132,38 @@ public class CameraMove : MonoBehaviour
         {
             //print("Stop");
 
-            sideSpeed = 0;
 
+            RsideSpeed = 0;
             
         }
         else if (this.gameObject.transform.position.x <= -maxLeft)
         {
-            sideSpeed = 0;
-
-           
+            LsideSpeed = 0;
         }
         else
         {
-            sideSpeed = 75;
+            LsideSpeed = 75;
+
+            RsideSpeed = 75;
         }
         
         if (this.gameObject.transform.position.y >= maxUp)
         {
            // print("UP");
 
-            speed = 0;
+            Upspeed = 0;
         }
         else if (this.gameObject.transform.position.y <= -maxDown)
         {
            // print("DOWN");
 
-            speed = 0;
+            Downspeed = 0;
         }
         else
         {
-            speed = 75;
+            Upspeed = 75;
+
+            Downspeed = 75;
         }
 
 
