@@ -18,6 +18,14 @@ public class EnemyShoot : MonoBehaviour
 
     public float turretMoveSpeed;
 
+
+   // public float shootTime;
+
+    //float timer;
+
+    bool canFire;
+
+
     // Use this for initialization
     void Start()
     {
@@ -27,11 +35,15 @@ public class EnemyShoot : MonoBehaviour
 
         Turet = GameObject.Find("Enemy Gun");
 
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         battleShips = GameObject.FindGameObjectsWithTag("Battle Ship");
 
         if (battleShips.Length == 0)
@@ -41,17 +53,42 @@ public class EnemyShoot : MonoBehaviour
         else
         {
 
-            Instantiate(bullet, shootArea.transform.position, shootArea.transform.rotation);
-
+          
             for (int i = 0; i < battleShips.Length; i++)
             {
                 Vector3 vectorToTarget = battleShips[i].transform.position - transform.position;
                 float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg);
                 Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
                 transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * turretMoveSpeed);
+
+              
+
+                if (canFire == false)
+                {
+                    StartCoroutine(Fire());
+
+                    Instantiate(bullet, shootArea.transform.position, shootArea.transform.rotation);
+
+                    
+                }
+                
             }
+
         }
 
-
     }
+
+    IEnumerator Fire()
+    {
+        canFire = true;
+        yield return new WaitForSeconds(0.25f);
+        canFire = false;
+        
+    }
+
+    
 }
+
+
+
+

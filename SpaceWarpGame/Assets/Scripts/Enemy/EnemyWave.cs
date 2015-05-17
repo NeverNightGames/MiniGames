@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyWave : MonoBehaviour {
+public class EnemyWave : MonoBehaviour
+{
 
 
     public float timerToAttack;
@@ -15,19 +16,19 @@ public class EnemyWave : MonoBehaviour {
     public Transform[] spawnPos;
 
 
-   // public bool enAttacking;
+    // public bool enAttacking;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
-       
 
-     
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
+
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         timer += Time.fixedDeltaTime;
 
@@ -35,14 +36,11 @@ public class EnemyWave : MonoBehaviour {
         {
             canAttack = true;
 
-            
+
         }
 
         if (canAttack == true)
         {
-            //enAttacking = true;
-
-          
 
             for (int i = 0; i < EnemyOBJS.Length; i++)
             {
@@ -57,7 +55,7 @@ public class EnemyWave : MonoBehaviour {
 
             timer = 0;
         }
-        
-	
-	}
+
+
+    }
 }

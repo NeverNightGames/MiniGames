@@ -73,6 +73,11 @@ public class JumpTime : MonoBehaviour {
             timer = 0;
         }
 
+        if (levelCount == 3)
+        {
+            Application.LoadLevel(2);
+        }
+
         RenderSettings.skybox = spaceMat1;
 
        // backSPR.sprite = 

@@ -51,16 +51,16 @@ public class EnemyScript : MonoBehaviour {
         //    enemyHealthBar.value--;
         //}
 
-        if (col.gameObject.tag == "Border")
-        {
-            print("HIT");
-
-            Destroy(this.gameObject);
-        }
+       
 
         if (col.gameObject.tag == "Battle Ship")
         {
             Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(),GetComponent<Collider2D>());
+        }
+
+        if (col.gameObject.tag == "MotherShip")
+        {
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
 
         if (col.gameObject.tag == "Enemy")
@@ -81,6 +81,13 @@ public class EnemyScript : MonoBehaviour {
             //print("ENEMY");
 
             enemyHealthBar.value--;
+        }
+
+        if (col.gameObject.tag == "Border")
+        {
+            print("HIT");
+
+            Destroy(this.gameObject);
         }
     }
 }

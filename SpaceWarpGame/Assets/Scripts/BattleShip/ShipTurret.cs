@@ -18,11 +18,14 @@ public class ShipTurret : MonoBehaviour
 
     private TotalResources totResource;
 
-    public bool playBattleMusic; 
+    public bool playBattleMusic;
 
     public GameObject[] bsObj;
 
-   // public BattleShip[] BScript;
+
+    bool canFire;
+
+    // public BattleShip[] BScript;
 
 
     // Use this for initialization
@@ -41,17 +44,17 @@ public class ShipTurret : MonoBehaviour
         enemyShips = GameObject.FindGameObjectsWithTag("Enemy");
 
 
-     
 
-      
 
-       // print(totResource.totalAmmo);
 
-      //  int totAmmo = bsObj[0].GetComponent<BattleShip>().BSAmmo + bsObj[1].GetComponent<BattleShip>().BSAmmo + bsObj[2].GetComponent<BattleShip>().BSAmmo + bsObj[3].GetComponent<BattleShip>().BSAmmo + bsObj[4].GetComponent<BattleShip>().BSAmmo;
+
+        // print(totResource.totalAmmo);
+
+        //  int totAmmo = bsObj[0].GetComponent<BattleShip>().BSAmmo + bsObj[1].GetComponent<BattleShip>().BSAmmo + bsObj[2].GetComponent<BattleShip>().BSAmmo + bsObj[3].GetComponent<BattleShip>().BSAmmo + bsObj[4].GetComponent<BattleShip>().BSAmmo;
 
         //print(totAmmo);
 
-       // if (totAmmo >= 1)
+        // if (totAmmo >= 1)
         {
 
             for (int i = 0; i < enemyShips.Length; i++)
@@ -68,23 +71,36 @@ public class ShipTurret : MonoBehaviour
 
             if (enemyShips.Length == 0)
             {
-                print("Gone");
+                // print("Gone");
 
                 playBattleMusic = false;
             }
             else
             {
-                print("SPAWN");
+                // print("SPAWN");
 
                 playBattleMusic = true;
 
+                if (canFire == false)
+                {
+                    StartCoroutine(Fire());
 
-                Instantiate(bulletOBJ, firePos1.transform.position, firePos1.transform.rotation);
+                    Instantiate(bulletOBJ, firePos1.transform.position, firePos1.transform.rotation);
 
-                Instantiate(bulletOBJ, firePos2.transform.position, firePos2.transform.rotation);
+                    Instantiate(bulletOBJ, firePos2.transform.position, firePos2.transform.rotation);
+                }
             }
 
         }
+
+    }
+
+    IEnumerator Fire()
+    {
+        canFire = true;
+        yield return new WaitForSeconds(0.25f);
+        canFire = false;
+
 
     }
 }
