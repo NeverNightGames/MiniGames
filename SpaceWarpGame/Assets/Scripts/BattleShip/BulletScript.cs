@@ -70,6 +70,11 @@ public class BulletScript : MonoBehaviour
         {
             Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
+
+        if (col.gameObject.tag == "MotherShip")
+        {
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
     }
 
 }

@@ -95,7 +95,10 @@ public class MotherShip : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        MSHealthBar.value--;
+        if (col.gameObject.tag == "Enemy Bullet")
+        {
+            MSHealthBar.value--;
+        }
 
     }
 }

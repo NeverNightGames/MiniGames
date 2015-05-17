@@ -4,9 +4,9 @@ using System.Collections;
 public class EnemyShoot : MonoBehaviour
 {
 
+    public GameObject[] battleShips;
 
     private GameObject Turet;
-
 
     private GameObject motherShip;
 
@@ -16,9 +16,13 @@ public class EnemyShoot : MonoBehaviour
 
     public GameObject bullet;
 
+    public float turretMoveSpeed;
+
     // Use this for initialization
     void Start()
     {
+        
+
         motherShip = GameObject.Find("MotherShip");
 
         Turet = GameObject.Find("Enemy Gun");
@@ -28,17 +32,16 @@ public class EnemyShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        battleShips = GameObject.FindGameObjectsWithTag("Battle Ship");
 
+        for (int i = 0; i < battleShips.Length; i++)
+        {
+            Vector3 vectorToTarget = battleShips[i].transform.position - transform.position;
+            float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg);
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * turretMoveSpeed);
+        }
 
-        motherShipPos = new Vector3(motherShip.transform.position.x, motherShip.transform.position.y, 0);
-
-        float angle1 = Mathf.Atan2(motherShipPos.y,motherShipPos.x) * Mathf.Rad2Deg;
-
-        //float angle2 = Mathf.Atan2(motherShipPos.x, motherShipPos.y) * Mathf.Rad2Deg;
-
-         Turet.transform.rotation = Quaternion.AngleAxis(angle1, Vector3.forward);
-
-       // Turet.transform.rotation = Quaternion.AngleAxis(angle2, Vector3.forward);
 
          Instantiate(bullet, shootArea.transform.position, shootArea.transform.rotation);
 
