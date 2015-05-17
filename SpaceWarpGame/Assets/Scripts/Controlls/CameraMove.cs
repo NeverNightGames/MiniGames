@@ -142,9 +142,9 @@ public class CameraMove : MonoBehaviour
         }
         else
         {
-            LsideSpeed = 75;
+            LsideSpeed = 100;
 
-            RsideSpeed = 75;
+            RsideSpeed = 100;
         }
         
         if (this.gameObject.transform.position.y >= maxUp)
@@ -161,9 +161,9 @@ public class CameraMove : MonoBehaviour
         }
         else
         {
-            Upspeed = 75;
+            Upspeed = 100;
 
-            Downspeed = 75;
+            Downspeed = 100;
         }
 
 

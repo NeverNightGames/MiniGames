@@ -101,7 +101,6 @@ public class TotalResources : MonoBehaviour
 
         }
 
-       // print(MSFood);
 
         TotalFoodText.text = "Food " + totalFood;
         //
@@ -109,9 +108,21 @@ public class TotalResources : MonoBehaviour
         //
         int MSAmmo = MSScript.MSAmmo;
 
+        for (int i = 0; i < BattleShips.Length; i++)
+        {
+            int S1Ammo = BattleShips[0].BSAmmo;
 
+            int S2Ammo = BattleShips[1].BSAmmo;
 
-        totalAmmo = MSAmmo;// +BS1Ammo;// +BS2Ammo + BS3Ammo;
+            int S3Ammo = BattleShips[2].BSAmmo;
+
+            int S4Ammo = BattleShips[3].BSAmmo;
+
+            int S5Ammo = BattleShips[4].BSAmmo;
+
+            totalAmmo = S1Ammo + S2Ammo + S3Ammo + S4Ammo + S5Ammo + MSAmmo;
+
+        }
 
         TotalAmmoText.text = "Ammo " + totalAmmo;
         //
@@ -121,10 +132,10 @@ public class TotalResources : MonoBehaviour
         int totalAmmount = totalFood + totalEnergy + totalAmmo;
 
 
-        if (totalEnergy <= 0)
-        {
-            Debug.Log("GAME OVER");
-        }
+        //if (totalEnergy <= 0)
+        //{
+        //    Debug.Log("GAME OVER");
+        //}
 
         totalText.text = "Total: " + totalAmmount;
 

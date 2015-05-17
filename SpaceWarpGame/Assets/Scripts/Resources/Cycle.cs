@@ -71,7 +71,7 @@ public class Cycle : MonoBehaviour
     void Update()
     {
         timer += Time.fixedDeltaTime;
-
+        
 
 
 

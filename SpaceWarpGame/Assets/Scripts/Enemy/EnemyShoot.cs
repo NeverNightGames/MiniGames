@@ -21,7 +21,7 @@ public class EnemyShoot : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+
 
         motherShip = GameObject.Find("MotherShip");
 
@@ -34,17 +34,23 @@ public class EnemyShoot : MonoBehaviour
     {
         battleShips = GameObject.FindGameObjectsWithTag("Battle Ship");
 
-        for (int i = 0; i < battleShips.Length; i++)
+        if (battleShips.Length == 0)
         {
-            Vector3 vectorToTarget = battleShips[i].transform.position - transform.position;
-            float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg);
-            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * turretMoveSpeed);
+            print("Game Over");
         }
+        else
+        {
 
+            Instantiate(bullet, shootArea.transform.position, shootArea.transform.rotation);
 
-         Instantiate(bullet, shootArea.transform.position, shootArea.transform.rotation);
-
+            for (int i = 0; i < battleShips.Length; i++)
+            {
+                Vector3 vectorToTarget = battleShips[i].transform.position - transform.position;
+                float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg);
+                Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+                transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * turretMoveSpeed);
+            }
+        }
 
 
     }

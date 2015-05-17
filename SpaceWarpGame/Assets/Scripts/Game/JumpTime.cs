@@ -14,10 +14,14 @@ public class JumpTime : MonoBehaviour {
 
     private Slider jumpSlider;
 
+    public Material spaceMat1;
 
-    public GameObject backOBJ;
 
-    private SpriteRenderer backSprRender;
+   // public GameObject backOBJ;
+
+   // private SpriteRenderer backSprRender;
+
+
 
     public Sprite[] backSPR;
 
@@ -28,9 +32,9 @@ public class JumpTime : MonoBehaviour {
 
         jumpButton.gameObject.SetActive(false);
 
-        backSprRender = backOBJ.GetComponent<SpriteRenderer>();
+        //backSprRender = backOBJ.GetComponent<SpriteRenderer>();
 
-        backSprRender.sprite = backSPR[0];
+       // backSprRender.sprite = backSPR[0];
 	
 	}
 
@@ -64,10 +68,12 @@ public class JumpTime : MonoBehaviour {
 
         if (levelCount == 2)
         {
-            backSprRender.sprite = backSPR[1];
+           // backSprRender.sprite = backSPR[1];
 
             timer = 0;
         }
+
+        RenderSettings.skybox = spaceMat1;
 
        // backSPR.sprite = 
     }
