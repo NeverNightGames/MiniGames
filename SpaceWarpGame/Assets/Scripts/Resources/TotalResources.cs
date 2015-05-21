@@ -25,7 +25,17 @@ public class TotalResources : MonoBehaviour
     public Text totalText;
 
 
-    
+
+    int S1Food;
+
+    int S2Food;
+
+    int S3Food;
+
+    int S4Food;
+
+    int S5Food;
+
 
 
     public int totalEnergy;
@@ -33,6 +43,9 @@ public class TotalResources : MonoBehaviour
     public int totalFood;
 
     public int totalAmmo;
+
+
+    Cycle Cyc;
 
 
     // private GameObject BattleShip2;
@@ -47,6 +60,8 @@ public class TotalResources : MonoBehaviour
         bShipOBJ = GameObject.FindGameObjectsWithTag("Battle Ship");
 
 
+
+
         for (int i = 0; i < bShipOBJ.Length; i++)
         {
             BattleShips[i] = bShipOBJ[i].GetComponent<BattleShip>();
@@ -59,6 +74,7 @@ public class TotalResources : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Cyc = this.gameObject.GetComponent<Cycle>();
 
         //
         int MSEnergy = MSScript.MSEnergy;
@@ -87,22 +103,31 @@ public class TotalResources : MonoBehaviour
 
         for (int i = 0; i < BattleShips.Length; i++)
         {
-            int S1Food = BattleShips[0].BSFood;
+            S1Food = BattleShips[0].BSFood;
 
-            int S2Food = BattleShips[1].BSFood;
+            S2Food = BattleShips[1].BSFood;
 
-            int S3Food = BattleShips[2].BSFood;
+            S3Food = BattleShips[2].BSFood;
 
-            int S4Food = BattleShips[3].BSFood;
+            S4Food = BattleShips[3].BSFood;
 
-            int S5Food = BattleShips[4].BSFood;
+            S5Food = BattleShips[4].BSFood;
 
-            totalFood = S1Food + S2Food + S3Food + S4Food + S5Food + MSFood;
 
         }
 
+        totalFood = S1Food + S2Food + S3Food + S4Food + S5Food + MSFood;
+
+        //if (Cyc.timer >= Cyc.cycleTime)
+        //{
+        //    totalFood -= 500;
+        //}
+
 
         TotalFoodText.text = "Food " + totalFood;
+
+
+        //TotalFoodText.text = "Food " + totalFood;
         //
 
         //
@@ -130,6 +155,9 @@ public class TotalResources : MonoBehaviour
 
         //
         int totalAmmount = totalFood + totalEnergy + totalAmmo;
+
+
+      
 
 
         //if (totalEnergy <= 0)

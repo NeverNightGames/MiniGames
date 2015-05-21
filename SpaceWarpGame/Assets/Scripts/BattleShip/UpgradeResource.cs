@@ -197,27 +197,30 @@ public class UpgradeResource : MonoBehaviour
 
         if (canUpgradeEnergy == true)
         {
-
-            energyLevel += 1;
-
-            switch (energyLevel)
+            if (totResource.totalEnergy >= 100)
             {
-                case 1:
-                    BShip.BSEnergy -= upgradeCost1;
-                    break;
-                case 2:
-                    BShip.BSEnergy -= upgradeCost2;
-                    break;
-                case 3:
-                    BShip.BSEnergy -= upgradeCost3;
-                    break;
-                case 4:
-                    BShip.BSEnergy -= upgradeCost4;
-                    canUpgradeEnergy = false;
-                    break;
-                default:
-                    print("ERROR");
-                    break;
+
+                energyLevel += 1;
+
+                switch (energyLevel)
+                {
+                    case 1:
+                        BShip.BSEnergy -= upgradeCost1;
+                        break;
+                    case 2:
+                        BShip.BSEnergy -= upgradeCost2;
+                        break;
+                    case 3:
+                        BShip.BSEnergy -= upgradeCost3;
+                        break;
+                    case 4:
+                        BShip.BSEnergy -= upgradeCost4;
+                        canUpgradeEnergy = false;
+                        break;
+                    default:
+                        print("ERROR");
+                        break;
+                }
             }
         }
 
@@ -234,26 +237,33 @@ public class UpgradeResource : MonoBehaviour
 
         if (canUpgradeFood == true)
         {
-            foodLevel += 1;
-
-            switch (foodLevel)
+            if (totResource.totalEnergy >= 100)
             {
-                case 1:
-                    BShip.BSEnergy -= upgradeCost1;
-                    break;
-                case 2:
-                    BShip.BSEnergy -= upgradeCost2;
-                    break;
-                case 3:
-                    BShip.BSEnergy -= upgradeCost3;
-                    break;
-                case 4:
-                    BShip.BSEnergy -= upgradeCost4;
-                    canUpgradeFood = false;
-                    break;
-                default:
-                    print("ERROR");
-                    break;
+
+                foodLevel += 1;
+
+
+
+
+                switch (foodLevel)
+                {
+                    case 1:
+                        BShip.BSEnergy -= upgradeCost1;
+                        break;
+                    case 2:
+                        BShip.BSEnergy -= upgradeCost2;
+                        break;
+                    case 3:
+                        BShip.BSEnergy -= upgradeCost3;
+                        break;
+                    case 4:
+                        BShip.BSEnergy -= upgradeCost4;
+                        canUpgradeFood = false;
+                        break;
+                    default:
+                        print("ERROR");
+                        break;
+                }
             }
         }
 
@@ -266,27 +276,32 @@ public class UpgradeResource : MonoBehaviour
         if (canUpgradeAmmo == true)
         {
 
-            ammoLevel += 1;
 
-            switch (ammoLevel)
+            if (totResource.totalEnergy >= 100)
             {
+                ammoLevel += 1;
 
-                case 1:
-                    BShip.BSEnergy -= upgradeCost1;
-                    break;
-                case 2:
-                    BShip.BSEnergy -= upgradeCost2;
-                    break;
-                case 3:
-                    BShip.BSEnergy -= upgradeCost3;
-                    break;
-                case 4:
-                    BShip.BSEnergy -= upgradeCost4;
-                    canUpgradeAmmo = false;
-                    break;
-                default:
-                    print("ERROR");
-                    break;
+
+                switch (ammoLevel)
+                {
+
+                    case 1:
+                        BShip.BSEnergy -= upgradeCost1;
+                        break;
+                    case 2:
+                        BShip.BSEnergy -= upgradeCost2;
+                        break;
+                    case 3:
+                        BShip.BSEnergy -= upgradeCost3;
+                        break;
+                    case 4:
+                        BShip.BSEnergy -= upgradeCost4;
+                        canUpgradeAmmo = false;
+                        break;
+                    default:
+                        print("ERROR");
+                        break;
+                }
             }
         }
 

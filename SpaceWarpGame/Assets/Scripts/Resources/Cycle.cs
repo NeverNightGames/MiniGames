@@ -5,7 +5,7 @@ using System.Collections;
 public class Cycle : MonoBehaviour
 {
 
-    float timer;
+    public float timer;
 
     public float cycleTime;
 
@@ -56,7 +56,7 @@ public class Cycle : MonoBehaviour
     void Start()
     {
 
-        totResources = this.gameObject.GetComponentInParent<TotalResources>();
+       // totResources = this.gameObject.GetComponentInParent<TotalResources>();
 
         bShipOBJ = GameObject.FindGameObjectsWithTag("Battle Ship");
 
@@ -65,26 +65,27 @@ public class Cycle : MonoBehaviour
             BSUpgradeResource[i] = bShipOBJ[i].GetComponent<UpgradeResource>();
         }
 
+       
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        totResources = this.gameObject.GetComponentInParent<TotalResources>();
+
+
         timer += Time.fixedDeltaTime;
-        
-
-
 
         //Cycle
         if (timer >= cycleTime)
         {
-
             // 
 
-            totResources.totalEnergy -= 100;
+           // totResources.totalEnergy -= 100;
 
-            totResources.totalFood -= 100;
-
+           
 
 
             ResourceEnergyLevelUpgrade();
@@ -98,9 +99,16 @@ public class Cycle : MonoBehaviour
 
             timer = 0;
 
+            //totResources.totalFood -= 1000;
+
+
+            //totResources.TotalFoodText.text = "Food " + totResources.totalFood;
+
         }
 
         cycleText.text = "Cycle " + cycle;
+
+        //totResources.TotalFoodText.text = "Food " + totResources.totalFood;
 
     }
 
@@ -208,6 +216,9 @@ public class Cycle : MonoBehaviour
 
     void ResourceFoodLevelUpgrade()
     {
+
+        
+
         switch (BSUpgradeResource[0].foodLevel)
         {
             case 1:
@@ -403,6 +414,7 @@ public class Cycle : MonoBehaviour
                 print("ERROR");
                 break;
         }
+
 
     }
 

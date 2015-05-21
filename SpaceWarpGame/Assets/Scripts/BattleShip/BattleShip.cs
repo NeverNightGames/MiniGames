@@ -49,6 +49,7 @@ public class BattleShip : MonoBehaviour
 
     public Text weaponsText;
 
+    public Vector2 colPos;
 
 
     private bool clickedOn;
@@ -98,7 +99,7 @@ public class BattleShip : MonoBehaviour
 
         if(healthBar.value <= 1)
         {
-            print("Battle Ship Gone");
+            //print("Battle Ship Gone");
 
             this.gameObject.SetActive(false);
 
@@ -171,6 +172,10 @@ public class BattleShip : MonoBehaviour
         if (col.gameObject.tag == "Enemy Bullet")
         {
             healthBar.value--;
+
+            colPos = col.gameObject.transform.position;
+
+            print(colPos);
         }
     }
 
