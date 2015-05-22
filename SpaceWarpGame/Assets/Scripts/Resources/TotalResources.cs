@@ -45,10 +45,14 @@ public class TotalResources : MonoBehaviour
     public int totalAmmo;
 
 
-    Cycle Cyc;
+    //Cycle Cyc;
+
+    float timer;
 
 
     // private GameObject BattleShip2;
+
+
 
     // Use this for initialization
     void Start()
@@ -74,7 +78,7 @@ public class TotalResources : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Cyc = this.gameObject.GetComponent<Cycle>();
+       // Cyc = this.gameObject.GetComponent<Cycle>();
 
         //
         int MSEnergy = MSScript.MSEnergy;
@@ -114,17 +118,13 @@ public class TotalResources : MonoBehaviour
             S5Food = BattleShips[4].BSFood;
 
 
+            totalFood = S1Food + S2Food + S3Food + S4Food + S5Food + MSFood;
+
         }
 
-        totalFood = S1Food + S2Food + S3Food + S4Food + S5Food + MSFood;
-
-        //if (Cyc.timer >= Cyc.cycleTime)
-        //{
-        //    totalFood -= 500;
-        //}
 
 
-        TotalFoodText.text = "Food " + totalFood;
+        TotalFoodText.text = "Food " + totalFood; 
 
 
         //TotalFoodText.text = "Food " + totalFood;
@@ -157,13 +157,23 @@ public class TotalResources : MonoBehaviour
         int totalAmmount = totalFood + totalEnergy + totalAmmo;
 
 
-      
+
+        if (totalEnergy <= 0)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= 30)
+            {
+                Application.LoadLevel(3);
+            }
 
 
-        //if (totalEnergy <= 0)
-        //{
-        //    Debug.Log("GAME OVER");
-        //}
+            //    Debug.Log("GAME OVER");
+        }
+        else
+        {
+            timer = 0;
+        }
 
         totalText.text = "Total: " + totalAmmount;
 

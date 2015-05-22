@@ -83,15 +83,12 @@ public class Cycle : MonoBehaviour
         {
             // 
 
-           // totResources.totalEnergy -= 100;
-
-           
-
+           // totResources.totalEnergy -= 100
 
             ResourceEnergyLevelUpgrade();
 
-            ResourceFoodLevelUpgrade();
 
+            ResourceFoodLevelUpgrade();
             ResourceAmmoLevelUpgrade();
 
 
@@ -223,15 +220,19 @@ public class Cycle : MonoBehaviour
         {
             case 1:
                 bShipOBJ[0].GetComponent<BattleShip>().BSFood += level1FoodUpgrade;
+                bShipOBJ[0].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 2:
                 bShipOBJ[0].GetComponent<BattleShip>().BSFood += level2FoodUpgrade;
+                bShipOBJ[0].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 3:
                 bShipOBJ[0].GetComponent<BattleShip>().BSFood += level3FoodUpgrade;
+                bShipOBJ[0].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 4:
                 bShipOBJ[0].GetComponent<BattleShip>().BSFood += level4FoodUpgrade;
+                bShipOBJ[0].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             default:
                 print("ERROR!");
@@ -242,15 +243,19 @@ public class Cycle : MonoBehaviour
         {
             case 1:
                 bShipOBJ[1].GetComponent<BattleShip>().BSFood += level1FoodUpgrade;
+                bShipOBJ[1].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 2:
                 bShipOBJ[1].GetComponent<BattleShip>().BSFood += level2FoodUpgrade;
+                bShipOBJ[1].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 3:
                 bShipOBJ[1].GetComponent<BattleShip>().BSFood += level3FoodUpgrade;
+                bShipOBJ[1].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 4:
                 bShipOBJ[1].GetComponent<BattleShip>().BSFood += level4FoodUpgrade;
+                bShipOBJ[1].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             default:
                 print("ERROR!");
@@ -261,15 +266,19 @@ public class Cycle : MonoBehaviour
         {
             case 1:
                 bShipOBJ[2].GetComponent<BattleShip>().BSFood += level1FoodUpgrade;
+                bShipOBJ[2].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 2:
                 bShipOBJ[2].GetComponent<BattleShip>().BSFood += level2FoodUpgrade;
+                bShipOBJ[2].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 3:
                 bShipOBJ[2].GetComponent<BattleShip>().BSFood += level3FoodUpgrade;
+                bShipOBJ[2].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 4:
                 bShipOBJ[2].GetComponent<BattleShip>().BSFood += level4FoodUpgrade;
+                bShipOBJ[2].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             default:
                 print("ERROR!");
@@ -281,15 +290,19 @@ public class Cycle : MonoBehaviour
         {
             case 1:
                 bShipOBJ[3].GetComponent<BattleShip>().BSFood += level1FoodUpgrade;
+                bShipOBJ[3].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 2:
                 bShipOBJ[3].GetComponent<BattleShip>().BSFood += level2FoodUpgrade;
+                bShipOBJ[3].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 3:
                 bShipOBJ[3].GetComponent<BattleShip>().BSFood += level3FoodUpgrade;
+                bShipOBJ[3].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 4:
                 bShipOBJ[3].GetComponent<BattleShip>().BSFood += level4FoodUpgrade;
+                bShipOBJ[3].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             default:
                 print("ERROR!");
@@ -301,15 +314,19 @@ public class Cycle : MonoBehaviour
         {
             case 1:
                 bShipOBJ[4].GetComponent<BattleShip>().BSFood += level1FoodUpgrade;
+                bShipOBJ[4].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 2:
                 bShipOBJ[4].GetComponent<BattleShip>().BSFood += level2FoodUpgrade;
+                bShipOBJ[4].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 3:
                 bShipOBJ[4].GetComponent<BattleShip>().BSFood += level3FoodUpgrade;
+                bShipOBJ[4].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 4:
                 bShipOBJ[4].GetComponent<BattleShip>().BSFood += level4FoodUpgrade;
+                bShipOBJ[4].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             default:
                 print("ERROR!");

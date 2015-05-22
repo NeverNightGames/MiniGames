@@ -8,17 +8,22 @@ public class ShipTurret : MonoBehaviour
 
     public GameObject enemyShip;
 
+
     public Transform firePos1;
 
     public Transform firePos2;
 
     public GameObject bulletOBJ;
 
+
     public float turretMoveSpeed;
+
 
     private TotalResources totResource;
 
+
     public bool playBattleMusic;
+
 
     public GameObject[] bsObj;
 
@@ -55,7 +60,7 @@ public class ShipTurret : MonoBehaviour
         //print(totAmmo);
 
         // if (totAmmo >= 1)
-        {
+       // {
 
             for (int i = 0; i < enemyShips.Length; i++)
             {
@@ -93,7 +98,8 @@ public class ShipTurret : MonoBehaviour
 
         }
 
-    }
+    
+
 
     IEnumerator Fire()
     {

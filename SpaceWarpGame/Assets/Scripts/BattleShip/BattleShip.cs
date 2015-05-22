@@ -52,6 +52,11 @@ public class BattleShip : MonoBehaviour
     public Vector2 colPos;
 
 
+    public GameObject TuretLV1;
+
+    public GameObject TuretLV2; 
+
+
     private bool clickedOn;
 
     public Texture2D cursorTexture;
@@ -65,6 +70,12 @@ public class BattleShip : MonoBehaviour
         battleShipCanvas.gameObject.SetActive(false);
 
         healthBar.fillRect.GetComponent<Image>().color = Color.green;
+
+        //TuretLV1 = GameObject.Find("Gun1 level 1");
+
+        //TuretLV2 = GameObject.Find("Gun1 level 2");
+
+        TuretLV2.SetActive(false);
 
         // healthBar.fillRect.GetComponent<Image>().color = Color.red;
 
@@ -157,13 +168,17 @@ public class BattleShip : MonoBehaviour
 
         updatedAmmo = true;
 
-
     }
 
     public void WeaponsUpgrade()
     {
-
         print("Weapons");
+
+
+        TuretLV1.SetActive(false);
+
+        TuretLV2.SetActive(true);
+
     }
 
 
@@ -175,7 +190,7 @@ public class BattleShip : MonoBehaviour
 
             colPos = col.gameObject.transform.position;
 
-            print(colPos);
+            //print(colPos);
         }
     }
 

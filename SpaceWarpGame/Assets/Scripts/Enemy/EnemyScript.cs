@@ -2,22 +2,23 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class EnemyScript : MonoBehaviour {
+public class EnemyScript : MonoBehaviour
+{
 
     public float enemySpeed;
 
 
     public Slider enemyHealthBar;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
         enemyHealthBar = this.gameObject.GetComponentInChildren<Slider>();
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         //transform.Translate(enemySpeed,0, 0 * Time.fixedDeltaTime);
 
@@ -40,7 +41,7 @@ public class EnemyScript : MonoBehaviour {
 
             Destroy(this.gameObject);
         }
-	}
+    }
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -51,11 +52,11 @@ public class EnemyScript : MonoBehaviour {
         //    enemyHealthBar.value--;
         //}
 
-       
+
 
         if (col.gameObject.tag == "Battle Ship")
         {
-            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(),GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
 
         if (col.gameObject.tag == "MotherShip")
@@ -83,9 +84,16 @@ public class EnemyScript : MonoBehaviour {
             enemyHealthBar.value--;
         }
 
+        if (col.gameObject.tag == "Bullet V2")
+        {
+            //print("ENEMY");
+
+            enemyHealthBar.value -= 10;
+        }
+
         if (col.gameObject.tag == "Border")
         {
-            print("HIT");
+            //print("HIT");
 
             Destroy(this.gameObject);
         }

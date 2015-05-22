@@ -158,18 +158,18 @@ public class UpgradeResource : MonoBehaviour
         switch (weaponsLevel)
         {
             case 1:
-                weaponCostText.text = "     " + upgradeCost1;
+                weaponCostText.text = "     " + 500;
                 break;
-            case 2:
-                weaponCostText.text = "     " + upgradeCost2;
-                break;
-            case 3:
-                weaponCostText.text = "     " + upgradeCost3;
-                break;
-            case 4:
-                weaponCostText.text = "     " + upgradeCost4;
-               canUpgradeWeapons = false;
-                break;
+            //case 2:
+            //    weaponCostText.text = "     " + upgradeCost2;
+            //    break;
+            //case 3:
+            //    weaponCostText.text = "     " + upgradeCost3;
+            //    break;
+            //case 4:
+            //    weaponCostText.text = "     " + upgradeCost4;
+            //   canUpgradeWeapons = false;
+            //    break;
             default:
                 print("ERROR");
                 break;
@@ -319,17 +319,7 @@ public class UpgradeResource : MonoBehaviour
             switch (weaponsLevel)
             {
                 case 1:
-                    BShip.BSEnergy -= upgradeCost1;
-                    break;
-                case 2:
-                    BShip.BSEnergy -= upgradeCost2;
-                    break;
-                case 3:
-                    BShip.BSEnergy -= upgradeCost3;
-                    break;
-                case 4:
-                    BShip.BSEnergy -= upgradeCost4;
-                    canUpgradeWeapons = false;
+                    BShip.BSEnergy -= 500;
                     break;
                 default:
                     print("ERROR");
