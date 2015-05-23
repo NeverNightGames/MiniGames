@@ -6,13 +6,17 @@ public class MainMenu : MonoBehaviour {
 
     public Canvas menuCanvas;
 
-    public Canvas creditsCanvas;
+    public Canvas controlsCanvas;
 
+    public Canvas creditsCanvas;
 
 
 	// Use this for initialization
 	void Start () 
     {
+
+        controlsCanvas.gameObject.SetActive(false);
+
         creditsCanvas.gameObject.SetActive(false);
 	
 	}
@@ -35,6 +39,21 @@ public class MainMenu : MonoBehaviour {
 
         Application.Quit();
     }
+
+    public void ControlsPress()
+    {
+        menuCanvas.gameObject.SetActive(false);
+
+        controlsCanvas.gameObject.SetActive(true);
+    }
+
+    public void ControlsQuit()
+    {
+        controlsCanvas.gameObject.SetActive(false);
+
+        menuCanvas.gameObject.SetActive(true);
+    }
+
 
     public void CreditsPress()
     {

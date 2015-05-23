@@ -22,9 +22,11 @@ public class Controls : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+           // Application.Quit();
 
-            print("QUIT");
+            Application.LoadLevel(0);
+
+           // print("QUIT");
         }
 	
 	}
