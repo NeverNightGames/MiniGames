@@ -54,7 +54,10 @@ public class BattleShip : MonoBehaviour
 
     public GameObject TuretLV1;
 
-    public GameObject TuretLV2; 
+    public GameObject TuretLV2;
+
+
+   // public GameObject explosionOBJ;
 
 
     private bool clickedOn;
@@ -188,7 +191,10 @@ public class BattleShip : MonoBehaviour
         {
             healthBar.value--;
 
-            colPos = col.gameObject.transform.position;
+
+            //colPos = col.gameObject.transform.position;
+
+            //explosionOBJ.transform.position = colPos;
 
             //print(colPos);
         }

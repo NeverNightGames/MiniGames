@@ -55,6 +55,11 @@ public class JumpTime : MonoBehaviour {
 
             jumpButton.gameObject.SetActive(true);
 
+            if (levelCount == 1)
+            {
+                this.gameObject.GetComponent<EnemyWave>().timerToAttack = 2;
+            }
+
             //timer = 0;
         }
 	

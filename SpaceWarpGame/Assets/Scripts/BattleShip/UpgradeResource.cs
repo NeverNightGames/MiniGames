@@ -50,6 +50,13 @@ public class UpgradeResource : MonoBehaviour
     public Text weaponsLevelText;
 
 
+    public Button weaponUpgradeButton;
+
+    public InputField weaponCostField;
+
+    public InputField weaponField;
+
+
     public BattleShip BShip;
 
 
@@ -311,21 +318,30 @@ public class UpgradeResource : MonoBehaviour
 
     public void WeaponsUpgrade()
     {
-        if (canUpgradeWeapons == true)
-        {
 
-            weaponsLevel += 1;
+        BShip.BSEnergy -= 500;
 
-            switch (weaponsLevel)
-            {
-                case 1:
-                    BShip.BSEnergy -= 500;
-                    break;
-                default:
-                    print("ERROR");
-                    break;
-            }
-        }
+        weaponUpgradeButton.gameObject.SetActive(false);
+
+        weaponCostField.gameObject.SetActive(false);
+
+        weaponField.gameObject.SetActive(false);
+
+        //if (canUpgradeWeapons == true)
+        //{
+
+        //    switch (weaponsLevel)
+        //    {
+        //        case 1:
+        //            BShip.BSEnergy -= 500;
+        //            break;
+        //        default:
+        //            print("ERROR");
+        //            break;
+        //    }
+
+          
+        //}
 
 
         
