@@ -47,33 +47,38 @@ public class JumpTime : MonoBehaviour {
         if (timer <= jTime)
         {
             timer += Time.fixedDeltaTime;
+
+            jumpButton.gameObject.SetActive(false);
         }
         else
         {
-            
-            //print("Jump");
+            //print("Jump"
 
             jumpButton.gameObject.SetActive(true);
 
-            if (levelCount == 1)
-            {
-                this.gameObject.GetComponent<EnemyWave>().timerToAttack = 2;
-            }
+            this.gameObject.GetComponent<EnemyWave>().timerToAttack = 2;
 
-            //timer = 0;
+            //if (levelCount == 1)
+            //{
+            //    this.gameObject.GetComponent<EnemyWave>().timerToAttack = 2;
+            //}
+
+           // timer = 0;
         }
 	
 	}
 
     public void JumpClick()
     {
-        print("Jump");
+        //print("Jump");
 
         levelCount++;
 
         if (levelCount == 2)
         {
            // backSprRender.sprite = backSPR[1];
+
+            this.gameObject.GetComponent<EnemyWave>().timerToAttack = 120;
 
             timer = 0;
         }

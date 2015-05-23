@@ -16,11 +16,21 @@ public class TotalResources : MonoBehaviour
 
     public Text TotalFoodText;
 
+    public Text lowFoodText;
+
+
     public Text TotalEnergyText;
+
+    public Text lowEnergyText;
+
 
     public Text TotalAmmoText;
 
+    public Text lowAmmoText;
+
+
     //public Text TotalWeaponsText;
+
 
     public Text totalText;
 
@@ -101,6 +111,17 @@ public class TotalResources : MonoBehaviour
         TotalEnergyText.text = "Energy " + totalEnergy;
         //
 
+        if (totalEnergy <= 50)
+        {
+            //totalEnergy
+
+            lowEnergyText.gameObject.SetActive(true);
+        }
+        else
+        {
+            lowEnergyText.gameObject.SetActive(false);
+
+        }
 
         //
         int MSFood = MSScript.MSFood;
@@ -124,7 +145,26 @@ public class TotalResources : MonoBehaviour
 
 
 
-        TotalFoodText.text = "Food " + totalFood; 
+        TotalFoodText.text = "Food " + totalFood;
+
+        if (totalFood <= 25)
+        {
+            //print("LOW FOOD");
+
+            lowFoodText.gameObject.SetActive(true);
+
+            if (totalFood <= -100)
+            {
+                print("Game Over");
+
+                //Application.LoadLevel(3);
+            }
+
+        }
+        else
+        {
+            lowFoodText.gameObject.SetActive(false);
+        }
 
 
         //TotalFoodText.text = "Food " + totalFood;
@@ -145,13 +185,26 @@ public class TotalResources : MonoBehaviour
 
             int S5Ammo = BattleShips[4].BSAmmo;
 
-            totalAmmo = S1Ammo + S2Ammo + S3Ammo + S4Ammo + S5Ammo + MSAmmo;
+            //totalAmmo = S1Ammo + S2Ammo + S3Ammo + S4Ammo + S5Ammo + MSAmmo;
 
         }
 
-        TotalAmmoText.text = "Ammo " + totalAmmo;
-        //
+        totalAmmo = MSAmmo;
 
+        TotalAmmoText.text = "Ammo " + totalAmmo;
+        
+
+        if (totalAmmo <= 50)
+        {
+            lowAmmoText.gameObject.SetActive(true);
+
+         
+        }
+        else
+        {
+            lowAmmoText.gameObject.SetActive(false);
+        }
+        //
 
         //
         int totalAmmount = totalFood + totalEnergy + totalAmmo;

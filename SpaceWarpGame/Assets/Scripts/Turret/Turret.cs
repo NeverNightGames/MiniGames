@@ -77,7 +77,7 @@ public class Turret : MonoBehaviour
 
             if (canFire == true)
             {
-                Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
+                //Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
 
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
@@ -86,8 +86,8 @@ public class Turret : MonoBehaviour
                    // if(canFireT1 == true)
                     //{
 
-                       // if(motherShip.MSAmmo >= 1)
-                       // {
+                        if(motherShip.MSAmmo >= 1)
+                        {
                             timer += Time.fixedDeltaTime;
 
                             if (timer >= shootTime)
@@ -95,6 +95,8 @@ public class Turret : MonoBehaviour
                                 motherShip.MSAmmo--;
 
                                 Instantiate(bulletOBJ, FirePos1.transform.position, FirePos1.transform.rotation);
+
+                                Instantiate(bulletOBJ, FirePos2.transform.position, FirePos2.transform.rotation);
 
                                 bulletOBJ.transform.LookAt(mousePosition);
 
@@ -113,14 +115,14 @@ public class Turret : MonoBehaviour
                         //if (motherShip.MSAmmo >= 1)
                       //  {
 
-                            motherShip.MSAmmo--;
+                            //motherShip.MSAmmo--;
 
-                            //print("FIRING");
+                            ////print("FIRING");
 
-                            Instantiate(bulletOBJ, FirePos2.transform.position, FirePos2.transform.rotation);
+                            //Instantiate(bulletOBJ, FirePos2.transform.position, FirePos2.transform.rotation);
 
-                            bulletOBJ.transform.LookAt(mousePosition);
-                       // }
+                            //bulletOBJ.transform.LookAt(mousePosition);
+                       }
 
                 }
             }

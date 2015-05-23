@@ -57,7 +57,7 @@ public class EnemyBullet : MonoBehaviour {
     {
         if (col.gameObject.tag == "Battle Ship")
         {
-            print("Enemy Bullet");
+            //print("Enemy Bullet");
 
             Destroy(this.gameObject);
         }

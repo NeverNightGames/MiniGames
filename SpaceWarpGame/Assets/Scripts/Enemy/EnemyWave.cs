@@ -49,7 +49,7 @@ public class EnemyWave : MonoBehaviour
                 Instantiate(EnemyOBJS[i], spawnPos[i].position, enemRo);
             }
 
-            print("Wave");
+           // print("Wave");
 
             canAttack = false;
 

@@ -27,6 +27,7 @@ public class MotherShip : MonoBehaviour {
 
     public Texture2D cursorTexture;
     public Texture2D cursorTexture1;
+    public Texture2D cursorTexture2;
     private CursorMode cursorMode = CursorMode.Auto;
     private Vector2 hotSpot = Vector2.zero;
 
@@ -56,7 +57,7 @@ public class MotherShip : MonoBehaviour {
 
         if (MSHealthBar.value <= 1)
         {
-            print("Game Over");
+           // print("Game Over");
 
             Application.LoadLevel(3);
         }
@@ -65,27 +66,38 @@ public class MotherShip : MonoBehaviour {
 
     void OnMouseEnter()
     {
-        Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
+        if (Clicked == false)
+        {
+            Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
+        }
     }
 
     void OnMouseExit()
     {
-        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        if (Clicked == false)
+        {
+            Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        }
+        
     }
     
     void OnMouseDown()
     {
-        print("clicked");
+        //print("clicked");
 
         if (Clicked == false)
         {
             theTurret.canFire = true;
+
+            Cursor.SetCursor(cursorTexture2, hotSpot, cursorMode);
 
             Clicked = true;
         }
         else if (Clicked == true)
         {
             this.gameObject.transform.rotation = turRot;
+
+            Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
 
             theTurret.canFire = false;
 
