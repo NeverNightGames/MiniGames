@@ -68,8 +68,6 @@ public class Cycle : MonoBehaviour
             BSUpgradeResource[i] = bShipOBJ[i].GetComponent<UpgradeResource>();
         }
 
-
-
     }
 
     // Update is called once per frame
@@ -84,14 +82,13 @@ public class Cycle : MonoBehaviour
         //Cycle
         if (timer >= cycleTime)
         {
-            // 
+            
 
-            // totResources.totalEnergy -= 100
 
             ResourceEnergyLevelUpgrade();
 
-
             ResourceFoodLevelUpgrade();
+
             ResourceAmmoLevelUpgrade();
 
 
@@ -99,16 +96,13 @@ public class Cycle : MonoBehaviour
 
             timer = 0;
 
-            //totResources.totalFood -= 1000;
-
-
-            //totResources.TotalFoodText.text = "Food " + totResources.totalFood;
+          
 
         }
 
         cycleText.text = "Cycle " + cycle;
 
-        //totResources.TotalFoodText.text = "Food " + totResources.totalFood;
+      
 
     }
 
@@ -228,7 +222,6 @@ public class Cycle : MonoBehaviour
             case 2:
                 bShipOBJ[0].GetComponent<BattleShip>().BSFood += level2FoodUpgrade;
                 bShipOBJ[0].GetComponent<BattleShip>().BSFood -= foodRemoval;
-                //bShipOBJ[0].GetComponent<BattleShip>().BSFood -= 50;
                 break;
             case 3:
                 bShipOBJ[0].GetComponent<BattleShip>().BSFood += level3FoodUpgrade;

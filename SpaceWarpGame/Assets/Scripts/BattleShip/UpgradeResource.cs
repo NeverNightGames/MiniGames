@@ -244,7 +244,7 @@ public class UpgradeResource : MonoBehaviour
 
         if (canUpgradeFood == true)
         {
-            if (totResource.totalEnergy >= 100)
+            if (totResource.totalEnergy >= 50)
             {
 
                 foodLevel += 1;
@@ -284,10 +284,9 @@ public class UpgradeResource : MonoBehaviour
         {
 
 
-            if (totResource.totalEnergy >= 100)
+            if (totResource.totalEnergy >= 50)
             {
                 ammoLevel += 1;
-
 
                 switch (ammoLevel)
                 {
@@ -326,29 +325,6 @@ public class UpgradeResource : MonoBehaviour
         weaponCostField.gameObject.SetActive(false);
 
         weaponField.gameObject.SetActive(false);
-
-        //if (canUpgradeWeapons == true)
-        //{
-
-        //    switch (weaponsLevel)
-        //    {
-        //        case 1:
-        //            BShip.BSEnergy -= 500;
-        //            break;
-        //        default:
-        //            print("ERROR");
-        //            break;
-        //    }
-
-          
-        //}
-
-
-        
-
-        //BShip.BSEnergy -= upgradeCost1;
-
-        //print("Weapons");
     }
 
 

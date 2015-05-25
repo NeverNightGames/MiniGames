@@ -28,11 +28,15 @@ public class ShipTurretVTwo : MonoBehaviour
 
     bool canFire;
 
+    public AudioClip ShootSFX;
+
+    AudioSource AS;
+
 
     // Use this for initialization
     void Start()
     {
-
+        AS = this.gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,6 +61,10 @@ public class ShipTurretVTwo : MonoBehaviour
 
             if (canFire == false)
             {
+                AS.clip = ShootSFX;
+
+                AS.Play();
+
                 StartCoroutine(Fire());
 
                 Instantiate(bulletOBJ, firePos1.transform.position, firePos1.transform.rotation);

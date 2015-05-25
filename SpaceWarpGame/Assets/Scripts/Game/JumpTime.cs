@@ -2,53 +2,49 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class JumpTime : MonoBehaviour {
+public class JumpTime : MonoBehaviour
+{
 
     public int levelCount = 1;
+
 
     public float jTime;
 
     float timer;
 
+
     public Button jumpButton;
 
     private Slider jumpSlider;
 
+
     public Material spaceMat1;
 
 
-   // public GameObject backOBJ;
-
-   // private SpriteRenderer backSprRender;
-
-
-
-    public Sprite[] backSPR;
-
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
         jumpSlider = GameObject.Find("Jump Slider").GetComponent<Slider>();
 
         jumpButton.gameObject.SetActive(false);
-
-        //backSprRender = backOBJ.GetComponent<SpriteRenderer>();
-
-       // backSprRender.sprite = backSPR[0];
-	
-	}
+    }
 
     // Update is called once per frame
-    void Update() 
+    void Update()
     {
+
+        timer += Time.fixedDeltaTime;
 
         jumpSlider.value = timer;
 
+        //timer += Time.fixedDeltaTime;
+
         if (timer <= jTime)
         {
-            timer += Time.fixedDeltaTime;
-
             jumpButton.gameObject.SetActive(false);
+
+           // jumpSlider.value = timer;
+
         }
         else
         {
@@ -56,31 +52,23 @@ public class JumpTime : MonoBehaviour {
 
             jumpButton.gameObject.SetActive(true);
 
-            this.gameObject.GetComponent<EnemyWave>().timerToAttack = 2;
-
-            //if (levelCount == 1)
-            //{
-            //    this.gameObject.GetComponent<EnemyWave>().timerToAttack = 2;
-            //}
-
-           // timer = 0;
         }
-	
-	}
+       
+        //print(timer);
+
+    }
 
     public void JumpClick()
     {
-        //print("Jump");
-
         levelCount++;
+
+        jumpSlider.value = 0;
+
+        timer = 0;
 
         if (levelCount == 2)
         {
-           // backSprRender.sprite = backSPR[1];
-
-            this.gameObject.GetComponent<EnemyWave>().timerToAttack = 120;
-
-            timer = 0;
+            RenderSettings.skybox = spaceMat1;
         }
 
         if (levelCount == 3)
@@ -88,9 +76,6 @@ public class JumpTime : MonoBehaviour {
             Application.LoadLevel(2);
         }
 
-        RenderSettings.skybox = spaceMat1;
-
-       // backSPR.sprite = 
     }
 }
 

@@ -16,14 +16,9 @@ public class EnemyWave : MonoBehaviour
     public Transform[] spawnPos;
 
 
-    // public bool enAttacking;
-
     // Use this for initialization
     void Start()
     {
-
-
-
 
     }
 
@@ -35,8 +30,6 @@ public class EnemyWave : MonoBehaviour
         if (timer >= timerToAttack)
         {
             canAttack = true;
-
-
         }
 
         if (canAttack == true)
@@ -46,10 +39,17 @@ public class EnemyWave : MonoBehaviour
             {
                 Quaternion enemRo = EnemyOBJS[i].transform.rotation;
 
+                float spawnY = Random.Range(0, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
+                //float spawnX = Random.Range(0, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width,0)).x);
+                Vector2 spawnPosition = new Vector2(Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x, spawnY);
+
+                spawnPos[i].transform.position = spawnPosition;
+
                 Instantiate(EnemyOBJS[i], spawnPos[i].position, enemRo);
+
             }
 
-           // print("Wave");
+            // print("Wave");
 
             canAttack = false;
 

@@ -57,7 +57,13 @@ public class BattleShip : MonoBehaviour
     public GameObject TuretLV2;
 
 
-   // public GameObject explosionOBJ;
+    public GameObject explosionOBJ;
+
+    public float explosionLifetime;
+
+    float timer;
+
+    public bool createExplosion;
 
 
     private bool clickedOn;
@@ -106,12 +112,12 @@ public class BattleShip : MonoBehaviour
         {
             healthBar.fillRect.GetComponent<Image>().color = Color.yellow;
         }
-        else if(healthBar.value <= 25)
+        else if (healthBar.value <= 25)
         {
             healthBar.fillRect.GetComponent<Image>().color = Color.red;
         }
 
-        if(healthBar.value <= 1)
+        if (healthBar.value <= 1)
         {
             //print("Battle Ship Gone");
 
@@ -123,6 +129,22 @@ public class BattleShip : MonoBehaviour
 
             BSAmmo -= 100;
         }
+
+        //if (createExplosion == true)
+        //{
+        //    timer += Time.fixedDeltaTime;
+
+        //    if (timer >= explosionLifetime)
+        //    {
+        //        Destroy(explosionOBJ);
+
+        //        timer = 0;
+        //    }
+
+        //    createExplosion = false;
+        //}
+
+
     }
 
     void OnMouseEnter()
@@ -189,10 +211,18 @@ public class BattleShip : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy Bullet")
         {
+
             healthBar.value--;
 
+            Destroy(col.gameObject);
 
             //colPos = col.gameObject.transform.position;
+
+            //createExplosion = true;
+
+            //Instantiate(explosionOBJ, colPos, Quaternion.identity);
+
+           
 
             //explosionOBJ.transform.position = colPos;
 

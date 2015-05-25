@@ -47,6 +47,9 @@ public class TotalResources : MonoBehaviour
     int S5Food;
 
 
+    float foodTimer;
+
+
 
     public int totalEnergy;
 
@@ -88,7 +91,7 @@ public class TotalResources : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Cyc = this.gameObject.GetComponent<Cycle>();
+        // Cyc = this.gameObject.GetComponent<Cycle>();
 
         //
         int MSEnergy = MSScript.MSEnergy;
@@ -147,17 +150,28 @@ public class TotalResources : MonoBehaviour
 
         TotalFoodText.text = "Food " + totalFood;
 
-        if (totalFood <= 25)
+        if (totalFood <= 35)
         {
             //print("LOW FOOD");
 
             lowFoodText.gameObject.SetActive(true);
 
-            if (totalFood <= -100)
+            if (totalFood <= 0)
             {
-                print("Game Over");
+                //print("Game Over");
+
+                foodTimer += Time.fixedDeltaTime;
+
+                if (foodTimer >= 15)
+                {
+                    Application.LoadLevel(3);
+                }
 
                 //Application.LoadLevel(3);
+            }
+            else
+            {
+                foodTimer = 0;
             }
 
         }
@@ -192,13 +206,12 @@ public class TotalResources : MonoBehaviour
         totalAmmo = MSAmmo;
 
         TotalAmmoText.text = "Ammo " + totalAmmo;
-        
 
         if (totalAmmo <= 50)
         {
             lowAmmoText.gameObject.SetActive(true);
 
-         
+
         }
         else
         {
@@ -209,8 +222,6 @@ public class TotalResources : MonoBehaviour
         //
         int totalAmmount = totalFood + totalEnergy + totalAmmo;
 
-
-
         if (totalEnergy <= 0)
         {
             timer += Time.deltaTime;
@@ -219,7 +230,6 @@ public class TotalResources : MonoBehaviour
             {
                 Application.LoadLevel(3);
             }
-
 
             //    Debug.Log("GAME OVER");
         }

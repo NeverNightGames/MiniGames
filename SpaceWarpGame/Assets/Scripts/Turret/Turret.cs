@@ -32,7 +32,11 @@ public class Turret : MonoBehaviour
     public Texture2D cursorTexture;
     public Texture2D cursorTexture1;
 
-   // public Button turretButton;
+    public AudioClip ShootSFX;
+
+    AudioSource AS;
+
+    // public Button turretButton;
 
     CursorMode cursorMode = CursorMode.Auto;
     Vector2 hotSpot = Vector2.zero;
@@ -46,16 +50,18 @@ public class Turret : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-       motherShip = GameObject.Find("MotherShip").GetComponent<MotherShip>();
+        motherShip = GameObject.Find("MotherShip").GetComponent<MotherShip>();
 
-       totResource = GameObject.Find("Game Master").GetComponent<TotalResources>();
+        totResource = GameObject.Find("Game Master").GetComponent<TotalResources>();
+
+        AS = this.gameObject.GetComponent<AudioSource>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       // transform.RotateAround(this.gameObject.transform.position, Vector3.up, 20 * Time.deltaTime);
+        // transform.RotateAround(this.gameObject.transform.position, Vector3.up, 20 * Time.deltaTime);
 
         if (motherShip.Clicked == true)
         {
@@ -81,104 +87,31 @@ public class Turret : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
-                    //print("G");
+                    if (motherShip.MSAmmo >= 1)
+                    {
+                        AS.clip = ShootSFX;
 
-                   // if(canFireT1 == true)
-                    //{
+                        AS.Play();
 
-                        if(motherShip.MSAmmo >= 1)
-                        {
-                            timer += Time.fixedDeltaTime;
+                        motherShip.MSAmmo--;
 
-                            if (timer >= shootTime)
-                            {
-                                motherShip.MSAmmo--;
+                        Instantiate(bulletOBJ, FirePos1.transform.position, FirePos1.transform.rotation);
 
-                                Instantiate(bulletOBJ, FirePos1.transform.position, FirePos1.transform.rotation);
+                        Instantiate(bulletOBJ, FirePos2.transform.position, FirePos2.transform.rotation);
 
-                                Instantiate(bulletOBJ, FirePos2.transform.position, FirePos2.transform.rotation);
+                        bulletOBJ.transform.LookAt(mousePosition);
 
-                                bulletOBJ.transform.LookAt(mousePosition);
+                        //timer = 0;
 
-                                //timer = 0;
-                            }
 
-                            
-                        //}
-
-                    //}
-
-                   // if (canFireT2 == true)
-                   // {
-                        // if (timer >= shootTime)
-                        // {
-                        //if (motherShip.MSAmmo >= 1)
-                      //  {
-
-                            //motherShip.MSAmmo--;
-
-                            ////print("FIRING");
-
-                            //Instantiate(bulletOBJ, FirePos2.transform.position, FirePos2.transform.rotation);
-
-                            //bulletOBJ.transform.LookAt(mousePosition);
-                       }
+                    }
 
                 }
             }
+
         }
+
     }
 
- 
-    //public void TurrretClick()
-    //{
-    //    if (Clicked == false)
-    //    {
-    //        //Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
 
-    //        canFire = true;
-
-    //        Clicked = true;
-    //    }
-    //    else if (Clicked == true)
-    //    {
-    //        canFire = false;
-
-    //        Cursor.SetCursor(null, Vector2.zero, cursorMode);
-
-    //        Clicked = false;
-    //    }
-    //}
-            
-
-    //void OnMouseDown()
-    //{
-    //    if (gameObject.transform.name == "MS Gun 1")
-    //    {
-    //        //print("CICKED");
-
-    //        canFireT1 = true;
-    //    }
-    //    else if (gameObject.transform.name == "MS Gun 2")
-    //    {
-    //        canFireT2 = true;
-    //    }
-
-    //   if (Clicked == false)
-    //    {
-    //        //Cursor.SetCursor(cursorTexture1, hotSpot, cursorMode);
-
-    //        canFire = true;
-
-    //        Clicked = true;
-    //    }
-    //    else if (Clicked == true)
-    //    {
-    //        canFire = false;
-
-    //        Cursor.SetCursor(null, Vector2.zero, cursorMode);
-
-    //        Clicked = false;
-    //    }
-    //}
 }
