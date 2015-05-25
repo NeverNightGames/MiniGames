@@ -73,18 +73,13 @@ public class Cycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         totResources = this.gameObject.GetComponentInParent<TotalResources>();
-
 
         timer += Time.fixedDeltaTime;
 
         //Cycle
         if (timer >= cycleTime)
         {
-            
-
-
             ResourceEnergyLevelUpgrade();
 
             ResourceFoodLevelUpgrade();
@@ -95,16 +90,12 @@ public class Cycle : MonoBehaviour
             cycle += 1;
 
             timer = 0;
-
-          
-
         }
 
         cycleText.text = "Cycle " + cycle;
 
-      
-
     }
+
 
     void ResourceEnergyLevelUpgrade()
     {
@@ -210,9 +201,6 @@ public class Cycle : MonoBehaviour
 
     void ResourceFoodLevelUpgrade()
     {
-
-
-
         switch (BSUpgradeResource[0].foodLevel)
         {
             case 1:
@@ -341,7 +329,6 @@ public class Cycle : MonoBehaviour
                 break;
             case 2:
                 MSScript.MSAmmo += Level2AmmoUpgrade;
-                // bShipOBJ[0].GetComponent<BattleShip>().BSAmmo += Level2AmmoUpgrade;
                 break;
             case 3:
                 MSScript.MSAmmo += Level3AmmoUpgrade;
